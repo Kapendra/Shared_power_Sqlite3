@@ -19,7 +19,7 @@ from tkinter import Tk, filedialog
 
 '''
             
-This is SplashScreen Class which will initialize the software and redirects you to Register Page 
+This is Homepage screen Class which will initialize the software and redirects you to Register Page
 
 '''
 class SplashScreenFrame(Frame):
@@ -30,24 +30,22 @@ class SplashScreenFrame(Frame):
 
 
 
-        self.button = Button(master,text="Click Here To Rent Tools", font=("bold", 10), relief="groove", activebackground="green",command=self.command1).place(x=255, y=310)
+        self.button = Button(master,text="Click Here To Rent Tools", font=("bold", 10),bg= 'Blue', relief="groove", activebackground="green",command=self.command1).place(x=255, y=310)
 
-        self.progress_bar = ttk.Progressbar(master, orient="horizontal",
-                                        length=600, mode="determinate")
-        self.progress_bar.place(x=0,y=280)
+       
 
 
-        self.label_6 = Label(master, text="Copyright@ Developers of Shahu, 2019", width=60, font=('Helvetica', 9), cursor="hand2")
-        self.label_6.place(x=90, y=340)
+        #self.label_6 = Label(master, text="Shared Power Rental Service software", width=60,font=('Helvetica', 9), cursor="hand2")
+        #self.label_6.place(x=90, y=340)
 
-        self.label_6.bind('<Button-1>', SplashScreenFrame.open_terms)
+        #self.label_6.bind('<Button-1>', SplashScreenFrame.open_terms)
 
-        title = Label(root, text="Shared Power :Tools Rent Service", width=30, font=("bold", 22))
+        title = Label(root, text="Shared Power :Tools Rental Service", width=30, font=("bold", 22))
         title.place(x=97, y=35)
 
-        self.img2 = PhotoImage(file="Images\yup1.png")
-        self.lab2 = Label(master, image=self.img2)
-        self.lab2.place(x=10, y=5)
+       # self.img2 = PhotoImage(file="Images\yup1.png")
+        #self.lab2 = Label(master, image=self.img2)
+        #self.lab2.place(x=10, y=5)
 
         self.img1 = PhotoImage(file="Images\Background3.png")
 
@@ -119,24 +117,24 @@ class LoginFrame():
         var2 = IntVar()
         Checkbutton(master, text="Keep me logged in", variable=var2, font=('Times', 13,'underline'),cursor="hand1").place(x=190, y=225 , width=200)
 
-        Button(master, text='Log In', font=("bold", 11), width=20, bg='brown', fg='white', command=self.login_info).place(
+        Button(master, text='Log In', font=("bold", 11), width=20, bg='Blue', fg='white', command=self._login_btn_clicked).place(
             x=208, y=280)
 
-        self.img2 = PhotoImage(file="Images\yup1.png")
+        #self.img2 = PhotoImage(file="Images\yup1.png")
 
-        self.lab2 = Label(master, image=self.img2)
-        self.lab2.place(x=20, y=23)
+        #self.lab2 = Label(master, image=self.img2)
+        #self.lab2.place(x=20, y=23)
 
         self.img1 = PhotoImage(file="Images\login2.png")
 
         self.lab1 = Label(master, image=self.img1)
         self.lab1.place(x=180,y=30)
 
-        self.label_6 = Label(master, text="Copyright@ Developers of Shahu, 2019", width=60, font=('Helvetica', 9), cursor="hand2")
-        self.label_6.place(x=88, y=320)
-        self.label_6.bind('<Button-1>', SplashScreenFrame.open_terms)
+       # self.label_6 = Label(master, text="Shared Power Rental Service software", width=60, font=('Helvetica', 9), cursor="hand2")
+       # self.label_6.place(x=88, y=320)
+       # self.label_6.bind('<Button-1>', SplashScreenFrame.open_terms)
 
-        master.resizable(False, False)
+        master.resizable(False,False)
         master.overrideredirect(True)
 
 
@@ -157,8 +155,7 @@ class LoginFrame():
         self.Username_Login = self. entry_username.get()
         self.Password_Login = hashlib.sha1(self.login_password.get().encode()).hexdigest()
 
-        file = open("Text File Handling\database3.txt", "r")
-        self.login1=file.read()
+       
 
         if  self.Username_Login and self.Password_Login in self.login1:
             tm.showinfo("Login successful", "Welcome User")
@@ -193,13 +190,12 @@ class LoginFrame():
     def _login_btn_clicked(self):
 
 
-        # print("Clicked")
         username = self.entry_username.get()
         password = self.login_password.get()
 
-        # print(username, password)
+      
 
-        if username == "Shahu" and password == "admin":
+        if username == "kapendra" and password == "admin":
             tm.showinfo("Login info", "Welcome User")
             self.master.withdraw()
 
@@ -247,28 +243,28 @@ class UserPanelFrame(Frame):
         self.button_destroy.place(x=685, y=3)
 
 
-        self.label_6 = Label(master, text="Copyright@ Developers of Shahu, 2019", width=60, font=('Helvetica', 9),cursor="hand2")
-        self.label_6.place(x=196, y=682)
-        self.label_6.bind('<Button-1>', SplashScreenFrame.open_terms)
+        #self.label_6 = Label(master, text="Shared Power Rental Service software", width=60, font=('Helvetica', 9),cursor="hand2")
+        #self.label_6.place(x=196, y=682)
+        #self.label_6.bind('<Button-1>', SplashScreenFrame.open_terms)
 
 
-        self.title = Label(master, text="Welcome !! Explore Shahu  ", width=30, font=("bold", 22))
+        self.title = Label(master, text="Welcome !! ", width=30, font=("bold", 22))
         self.title.place(x=110, y=35)
 
-        self.tool = PhotoImage(file="Images\Tool1.png")
+        #self.tool = PhotoImage(file="Images\Tool1.png")
 
-        self.tool1 = Label(master, image=self.tool)
-        self.tool1.place(x=125, y=90)
+        #self.tool1 = Label(master, image=self.tool)
+        #self.tool1.place(x=125, y=90)
 
-        self.tool1 = PhotoImage(file="Images\Tool1.png")
+        #self.tool1 = PhotoImage(file="Images\Tool1.png")
 
-        self.tool12 = Label(master, image=self.tool1)
-        self.tool12.place(x=520, y=90)
+        #self.tool12 = Label(master, image=self.tool1)
+        #self.tool12.place(x=520, y=90)
 
-        self.img2 = PhotoImage(file="Images\yup1.png")
+        #self.img2 = PhotoImage(file="Images\yup1.png")
 
-        self.lab2 = Label(master, image=self.img2)
-        self.lab2.place(x=10, y=5)
+        #self.lab2 = Label(master, image=self.img2)
+        #self.lab2.place(x=10, y=5)
 
         #self.img3 = PhotoImage(file="Sp1234.png")
 
@@ -278,17 +274,17 @@ class UserPanelFrame(Frame):
         master.resizable(False, False)
         master.overrideredirect(True)
 
-        self.button_cal = Button(master, text="Browse Calendar", font=("bold", 9), relief="groove",
-                                 activebackground="red", command=self.cal1)
-        self.button_cal.place(x=10, y=680)
+        #self.button_cal = Button(master, text="Calendar", font=("bold", 9), relief="groove",
+         #                        activebackground="red", command=self.cal1)
+        #self.button_cal.place(x=10, y=680)
 
-        self.show_profile = Button(master, text="View User Info", font=("bold", 9), relief="groove",
-                                 activebackground="red", command=self.show_info)
+        self.show_profile = Button(master, text="View Profile", font=("bold", 9), relief="groove",
+                                 activebackground="Grey", command='')
         self.show_profile.place(x=564, y=180)
 
         self.logout = PhotoImage(file="Images\logout.png")
-        self.user_logout = Button(master, image=self.logout, width=55, height=55,cursor="hand1", relief="flat",
-                                   activebackground="red", command=self.logOut)
+        self.user_logout = Button(master, image=self.logout, width=55, height=55, relief="flat",
+                                   activebackground="Blue", command=self.logOut)
         self.user_logout.place(x=659, y=659)
 
 
@@ -299,11 +295,11 @@ class UserPanelFrame(Frame):
         self.manphoto.place(x=10, y=160)
 
 
-        self.fetch = Label(master, text="Fetch your Desire with Shahu! ", width=25, font=("bold", 16))
+        self.fetch = Label(master, text="Fetch your Desire! ", width=25, font=("bold", 16))
         self.fetch.place(x=203, y=100)
         self.s1 = PhotoImage(file="Images\s1.png")
         self.search_tools = Button(master, text="Search Tools",  width=210, height=160, image=self.s1,
-                                   font=('arial', 16, "bold"), cursor="hand1",  command=self.search,
+                                   font=('arial', 16, "bold"),  command=self.search,
                                    activebackground="blue")
         self.search_tools.place(x=210, y=215)
 
@@ -324,19 +320,14 @@ class UserPanelFrame(Frame):
         self.upload1.place(x=475, y=395)
 
         self.hire = PhotoImage(file="Images\hire1.png")
-        self.hire_tools = Button(master, text="Hire Tools",  width=210, height=160, image=self.hire,
-                                 font=('arial', 16, "bold"), cursor="hand1",command=self.hire1,
-                                 activebackground="cyan")
+        self.hire_tools = Button(master, text="Hire Tools",  width=210, height=160, image=self.hire,font=('arial', 16, "bold"), cursor="hand1",command=self.hire1,activebackground="cyan")
         self.hire_tools.place(x=210, y=445)
 
         self.hire13 = Label(master, text="Hire Tools ", font=("arial", 16,"bold"))
         self.hire13.place(x=257, y=623)
 
         self.pay = PhotoImage(file="Images\paynow1.png")
-        self.pay_tools = Button(master, text="Payment & Delivery", width=210, height=160, image=self.pay,
-                                font=('arial', 16, "bold"), cursor="hand1",command=self.pay1,
-                                activebackground="brown",
-                                activeforeground="green")
+        self.pay_tools = Button(master, text="Payment & Delivery", width=210, height=160, image=self.pay,font=('arial', 16, "bold"), cursor="hand1",command=self.pay1,activebackground="brown",activeforeground="green")
         self.pay_tools.place(x=438, y=445)
 
         self.pay13 = Label(master, text="Payment & Delivery ", font=("arial", 16,"bold"))
@@ -379,7 +370,7 @@ class UserPanelFrame(Frame):
 
                 self.master.withdraw()
 
-                #print('Button is pressed!')
+                
                 # self.RegistrationFrame.destroy()
                 self.newWindow = tk.Toplevel(self.master)
                 self.app = payTools(self.newWindow)
@@ -408,7 +399,7 @@ class UserPanelFrame(Frame):
 
 
 
-                #print('Button is pressed!')
+               
                 # self.RegistrationFrame.destroy()
                 self.newWindow = tk.Toplevel(self.master)
                 self.app = CalendarShow(self.newWindow)
@@ -447,7 +438,7 @@ class UserPanelFrame(Frame):
         #print("This will logout you from user panel.")
 
         tm.showwarning("Confirm LogOut",
-                    "Are You sure want to LogOut from  Shahu:The Ultimate Shared Power? ")
+                    "Are You sure want to LogOut from Shared Power? ")
 
         self.master.withdraw()
 
@@ -462,7 +453,7 @@ class UserPanelFrame(Frame):
 
 def onRegister():
         # json_data = open(file_directory).read()
-        tkinter.messagebox.showinfo("Successful!!","Boom!! Boom !! You are successfully registered!!")
+        tkinter.messagebox.showinfo("Successful!! You are successfully registered!!")
 
 
 def minimizeProgram():
@@ -473,48 +464,12 @@ def minimizeProgram():
 def endProgram():
     # top.quit()
     tm.showinfo("Confirm Exit",
-                   "Are You sure want to exit Shahu:The Ultimate Shared Power? " )
+                   "Are You sure want to exit Shared Power? " )
     root.destroy()
 
 
 
 
-
-
-# This will show the user to Calendar which will be easy and convenient to know current time and date.
-
-
-class CalendarShow(Frame):
-    def __init__(self, master):
-        self.master = master
-        self.frame = tk.Frame(master)
-
-        self.label1 = Label(master, text="Year:")
-        self.label1.pack()
-
-        self.e1 = Entry(master)
-        self.e1.pack()
-
-        self.label2 = Label(master, text="Month:")
-        self.label2.pack()
-
-        self.e2 = Entry(master)
-        self.e2.pack()
-
-        self.button = Button(master, text="Show", command=self.cal)
-        self.button.pack()
-        master.title("Shahu-Calendar")
-
-        master.resizable(False, False)
-        master.overrideredirect(False)
-
-    def cal(self):
-            self.y = self.e1.get()
-            self.m = self.e2.get()
-            self.cal_x = calendar.month(int(self.y), int(self.m), w=2, l=1)
-            #print(self.cal_x)
-            self.cal_out = Label( self.master,text=self.cal_x, font=('courier', 12, 'bold'), bg="#0984e3")
-            self.cal_out.pack(padx=3, pady=10)
 
 
 
@@ -533,7 +488,7 @@ class RegistrationFrame(Frame):
         global entry_fullname, \
             entry_Email, \
             entry_password, \
-            entry_citizenshipno, \
+            entry_phoneno, \
             country, \
             var_P, \
             var_nonP, \
@@ -546,10 +501,12 @@ class RegistrationFrame(Frame):
 
         #self.label = Label(root, text="Registration form",width=20,fg='#1f3a93',bg = "#81cfe0 ",font=("Times", 30),borderwidth=3, relief="sunken").place(x=55,y=53)
 
-        self.button_minimize = Button(master, text="_", width=1, font=("bold", 17),relief="groove",activebackground="blue",command=self.minimizeProgram)
+        self.button_minimize = Button(master, text="_", width=1, font=("bold", 17),
+                                      relief="groove",activebackground="blue",command=self.minimizeProgram)
         self.button_minimize.place(x=491, y=2)
 
-        self.button_destroy = Button(master, text="X", width=2, font=("bold", 17) , relief="groove" , activebackground="red",command=endProgram)
+        self.button_destroy = Button(master, text="X", width=2, font=("bold", 17) ,
+                                     relief="groove" , activebackground="red",command=endProgram)
         self.button_destroy.place(x=515, y=3)
 
         self.label_1 = Label(master, text="FullName",width=20,font=("bold", 13))
@@ -583,12 +540,7 @@ class RegistrationFrame(Frame):
         Radiobutton(master, text="Female", variable=gender_value, value="Female",
                     command=RegistrationFrame.selected_gender).place(x=290, y=280)
 
-        '''
-        var = IntVar()
-        Radiobutton(master, text="Male",font=("bold", 10),padx = 5, variable=var, value=1).place(x=235,y=280)
-        Radiobutton(master, text="Female",font=("bold", 10),padx = 20, variable=var, value=2).place(x=290,y=280)
-        '''
-
+   
 
         self.label_4 = Label(master, text="Country",width=20,font=("bold", 13))
         self.label_4.place(x=70,y=330)
@@ -602,39 +554,39 @@ class RegistrationFrame(Frame):
         country.set('Select your Country')
         country_droplist.place(x=240,y=330)
 
-        label_q = Label(master, text="    CitizenNo.", width=20, font=("bold", 13))
+        label_q = Label(master, text="    Phone No", width=20, font=("bold", 13))
         label_q.place(x=70, y=380)
 
-        self.entry_citizenshipno = Entry(master, bd=5)
-        self.entry_citizenshipno.place(x=240, y=380, width=180)
+        self.entry_phoneno = Entry(master, bd=5)
+        self.entry_phoneno.place(x=240, y=380, width=180)
 
         label_4 = Label(master, text="      Applied Account",width=20,font=("bold", 13))
         label_4.place(x=85,y=430)
 
         var_nonP = IntVar()
-        Checkbutton(master, text="Non-Premium", variable=var_nonP,command=RegistrationFrame.selected_account).place(x=265,y=430)
+        Checkbutton(master, text="Buyer", variable=var_nonP,command=RegistrationFrame.selected_account).place(x=265,y=430)
 
         var_P = IntVar()
-        Checkbutton(master, text="Premium", variable=var_P, command=RegistrationFrame.selected_account).place(x=375,y=430)
+        Checkbutton(master, text="Seller", variable=var_P, command=RegistrationFrame.selected_account).place(x=375,y=430)
 
 
         self.registerButton=Button(master, text='Register',font=("bold", 11),width=20,bg='brown',fg='white' ,command =self.save_info).place(x=208,y=462)
 
 
-        self.label_5 = Button(master, text="Already registered Login with your info", width=65, font=('Times', 12,'underline'),cursor="hand1",activebackground="blue",command=self.command)
+        self.label_5 = Button(master, text="Already Have A Account ", width=65, font=('Times', 12,'underline'),activebackground="blue",command=self.command)
         self.label_5.place(x=0, y=500)
 
 
 
-        self.label_6 = Label(master, text="Copyright@ Developers of Shahu, 2019", width=60, font=('Helvetica', 9), cursor="hand2")
-        self.label_6.place(x=80, y=542)
-        self.label_6.bind('<Button-1>', SplashScreenFrame.open_terms)
+        #self.label_6 = Label(master, text="Shared Power Rental Service software", width=60, font=('Helvetica', 9), cursor="hand2")
+        #self.label_6.place(x=80, y=542)
+        #self.label_6.bind('<Button-1>', SplashScreenFrame.open_terms)
 
 
-        self.img2 = PhotoImage(file="Images\yup1.png")
+        #self.img2 = PhotoImage(file="Images\yup1.png")
 
-        self.lab2 = Label(master, image=self.img2)
-        self.lab2.place(x=20, y=23)
+        #self.lab2 = Label(master, image=self.img2)
+        #self.lab2.place(x=20, y=23)
 
         self.img1 = PhotoImage(file="Images\Regfinal1.png")
 
@@ -712,7 +664,7 @@ class RegistrationFrame(Frame):
        self.passw = self.entry_password.get()
        self.Username = self.entry_Email.get()
        self.Password = hashlib.sha1(self.entry_password.get().encode()).hexdigest()
-       self.CNo = self.entry_citizenshipno.get()
+       self.pno = self.entry_phoneno.get()
        self.account_selected1 = var_nonP.get()
        self.account_selected2 = var_P.get()
        self.account_selected1 = str(self.account_selected1)
@@ -732,7 +684,7 @@ class RegistrationFrame(Frame):
            self.passw = self.entry_password.get()
            self.Username = self.entry_Email.get()
            self.Password = hashlib.sha1(self.entry_password.get().encode()).hexdigest()
-           self.CNo = self.entry_citizenshipno.get()
+           self.pno = self.entry_phoneno.get()
            self.account_selected1 = var_nonP.get()
            self.account_selected2 = var_P.get()
            self.account_selected1 = str(self.account_selected1)
@@ -741,98 +693,9 @@ class RegistrationFrame(Frame):
            self.country_selected = country.get()
            self.Date = date.today()
 
-           file = open("Text File Handling\database3.txt", "a")
-
-           file.write("\n")
-           file.write("                  #####Registered User Information#####")
-           file.write("\n")
-           file.write("\n")
-
-           file.write("Name of user:        ")
-           file.write(self.name)
-
-           file.write("\n")
-           file.write("UserName:            ")
-           file.write(self.Username)
-
-           file.write("\n")
-           file.write("Password:            ")
-           file.write(self.Password)
-
-           file.write("\n")
-
-           file.write("Account Selected:      Non-Premium        ")
-           file.write(self.account_selected1)
-           file.write("\n")
-
-           file.write("                       Premium            ")
-           file.write(self.account_selected2)
-
-           file.write("\n")
-           file.write("Gender:               ")
-           file.write(self.gender_selected)
-
-           file.write("\n")
-           file.write("Country:              ")
-           file.write(self.country_selected)
-
-           file.write("\n")
-           file.write("Citizenship Number:    ")
-           file.write(self.CNo)
-           file.write("\n")
-           file.write("Registered Date:            ")
-           file.write(str(self.Date))
-
-           file.write("\n")
-           file.close()
-
-           file1 = open("Text File Handling\ViewUserInfo.txt", "w")
-
-           file1.write("\n")
-           file1.write("                  #####Registered User Information#####")
-           file1.write("\n")
-           file1.write("\n")
-
-           file1.write("Name of user:        ")
-           file1.write(self.name)
-
-           file1.write("\n")
-           file1.write("UserName:            ")
-           file1.write(self.Username)
-
-           file1.write("\n")
-           file1.write("Password:            ")
-           file1.write(self.Password)
-
-           file1.write("\n")
-
-           file1.write("Account Selected:      Non-Premium        ")
-           file1.write(self.account_selected1)
-           file1.write("\n")
-
-           file1.write("                       Premium            ")
-           file1.write(self.account_selected2)
-
-           file1.write("\n")
-           file1.write("Gender:               ")
-           file1.write(self.gender_selected)
-
-           file1.write("\n")
-           file1.write("Country:              ")
-           file1.write(self.country_selected)
-
-           file1.write("\n")
-           file1.write("Citizenship Number:    ")
-           file1.write(self.CNo)
-           file1.write("\n")
-           file1.write("Regsitered Date:            ")
-           file1.write(str(self.Date))
-
-           file1.write("\n")
-           file1.close()
-
+          
            tm.showinfo("Successful!!",
-                       "Boom!! Boom !! You are successfully registered!! Now yo will be redirected to LoginPage")
+                       " You are successfully registered!! Now yo will be redirected to LoginPage")
 
            self.master.withdraw()
 
@@ -845,54 +708,6 @@ class RegistrationFrame(Frame):
 
 
 
-        #File handling from JSON by using comparative understanding
-'''
-    
-    def onRegister(self):
-    
-    
-        self.name = self.entry_fullname.get()
-
-        self.Username = self.entry_Email.get()
-        self.Password = hashlib.sha1(self.entry_password.get().encode()).hexdigest()
-        self.CNo = self.entry_citizenshipno.get()
-        self.account_selected1 = var_nonP.get()
-        self.account_selected2 = var_P.get()
-        self.account_selected1 = str(self.account_selected1)
-        self.account_selected2 = str(self.account_selected2)
-        self.gender_selected = gender_value.get()
-        self.country_selected = country.get()
-    
-    
-    
-        # json_data = open(file_directory).read()
-        # tkinter.messagebox.showinfo("Successful!!","Boom!! Boom !! You are successfully registered!!")
-        # Button(root, text='Redirect ', font=("bold", 11), width=20, bg='brown', fg='white')
-
-        self.open_db = json.load(open("database1.txt"))  # Loads the json file as dictionary
-        self.profile = [{"Name": self.entry_fullname.get(),
-                    "Username": self.entry_Email.get(),
-                    "Password": hashlib.sha1(self.entry_password.get().encode()).hexdigest(),
-                    # The password from the password entry box is encoded with SHA1 in "Pass" value
-                    "CNo": self.entry_citizenshipno.get(),
-                    "Gender": self.gender_selected,
-                    "Country": self.country_selected,
-                    "Account1": self.account_selected1,
-                    "Account2": self.account_selected2,
-                    "Own_Tools": {},
-                    "Hired_Tools": {}
-                    }]
-        self.open_db[self.entry_fullname.get()] = profile  # Assigning the Name  from entry box as a key
-        try:
-            json.dump(open_db, open("database.txt",
-                                    'w'))  # Saving the dictionary as json with "w" file method i.e, it overwrites the file
-
-            tm.showinfo("Successful!!", "Boom!! Boom !! You are successfully registered!!")
-
-        except:
-            tm.showinfo("UnSuccessful!!", "Invalid!! Something went wrong")
-            
-'''
 
 
 
@@ -947,13 +762,9 @@ class UploadImage(Frame):
 
         self.store = file_path
 
-        file = open("Text File Handling\YUploadTools.txt", "a")
-        file.write("ToolImage:    ")
-        file.write(self.store)
-        file.write("\n")
-        file.close()
+      
 
-        tm.showinfo("Successfully Uploaded ToolImage!", "Your selected image is uploaded in ToolImage Database. !! Keep Exploring Shahu")
+        tm.showinfo("Successfully Uploaded ToolImage!", "Your selected image is uploaded in ToolImage Database. !! Keep Exploring Shared power")
         self.master.withdraw()
 
         # print('Button is pressed!')
@@ -1026,14 +837,14 @@ class uploadTools(Frame):
         Button(master, text='Upload Image', font=("arial", 13, "bold"), bg="green", fg='white',
                command=self.upload_image1).place(x=58, y=464)
 
-        self.label_6 = Label(master, text="Copyright@ Developers of Shahu, 2019", width=60, font=('Helvetica', 9), cursor="hand2")
-        self.label_6.place(x=80, y=512)
-        self.label_6.bind('<Button-1>', SplashScreenFrame.open_terms)
+       # self.label_6 = Label(master, text="Copyright@ Developers of Shahu, 2019", width=60, font=('Helvetica', 9), cursor="hand2")
+        #self.label_6.place(x=80, y=512)
+        #self.label_6.bind('<Button-1>', SplashScreenFrame.open_terms)
 
-        self.img2 = PhotoImage(file="Images\yup1.png")
+        #self.img2 = PhotoImage(file="Images\yup1.png")
 
-        self.lab2 = Label(master, image=self.img2)
-        self.lab2.place(x=20, y=23)
+        #self.lab2 = Label(master, image=self.img2)
+        #self.lab2.place(x=20, y=23)
 
         self.upload12 = PhotoImage(file="Images\pload12.png")
 
@@ -1126,44 +937,7 @@ class uploadTools(Frame):
 
 
 
-            file = open("Text File Handling\YUploadTools.txt", "a")
-
-            file.write("\n")
-            file.write("    #####Registered User Upload Tools Info#####")
-            file.write("\n")
-            file.write("\n")
-
-            file.write("Name of Tool:            ")
-            file.write(self.nameTool)
-            file.write("\n")
-            file.write("Tool Description:        ")
-            file.write(self.ToolDescription)
-            file.write("\n")
-            file.write("Tool Condition:          ")
-            file.write(self.Toolcondition)
-            file.write("\n")
-            file.write("Tool Rate:     HalfDay   ")
-            file.write(self.FullRate)
-            file.write("\n")
-            file.write("               Fullday   ")
-            file.write(self.HalfRate)
-            file.write("\n")
-            file.write("Uploaded Date:           ")
-            file.write(str(self.Date))
-            file.write("\n")
-
-
-            file.close()
-
-            file1 = open("Text File Handling\YUploadYes.txt", "a+")
-            #file1.write(str(self.list1))
-            file1.write(str(self.Dict))
-            file1.close()
-
-            #with open("uploadYes.txt", "w") as f:
-                #json.dump(self.Dict, f)
-
-            tm.showinfo("Successfully Uploaded Tool!", "Now your tool can be hired other Registered User . !! Keep Exploring Shahu")
+            tm.showinfo("Successfully Uploaded Tool!", "Now your tool can be hired other Registered User . !! Keep Exploring shared power")
 
 
 
@@ -1214,14 +988,12 @@ class SearchTools(Frame):
                                                                                                                   y=470)
 
 
-        self.label_6 = Label(master, text="Copyright@ Developers of Shahu, 2019", width=60, font=('Helvetica', 9), cursor="hand2")
-        self.label_6.place(x=140, y=512)
-        self.label_6.bind('<Button-1>', SplashScreenFrame.open_terms)
+     
 
-        self.img2 = PhotoImage(file="Images\yup1.png")
+        #self.img2 = PhotoImage(file="Images\yup1.png")
 
-        self.lab2 = Label(master, image=self.img2)
-        self.lab2.place(x=20, y=10)
+        #self.lab2 = Label(master, image=self.img2)
+        #self.lab2.place(x=20, y=10)
 
         self.img1 = PhotoImage(file="Images\search3.png")
 
@@ -1273,33 +1045,26 @@ class SearchTools(Frame):
 
         global Searched_Tool
 
-        with open('Text File Handling\YUploadYes.txt', 'r') as f:
-            self.d = json.loads(f.read().replace("'", '"'))
+      
 
-        #print (self.d['Name of Tool:'])
-        #self.a, self.b, self.c , self.d , self.e= self.d.split(',')
+      
         self.Searched_Tool = self.entry_ToolName.get()
-        #print(self.Searched_Tool)
-
-        # print(self.a)
-        # print(self.b)
-        # print(self.c)
-        # print(self.d)
-        # print(self.e)
 
 
-        print(self.d['Name of Tool:'])
-        file = open("Text File Handling\YUploadTools.txt", "r")
+    
+        if self.entry_ToolName.get()=="kapendra":
+        #if self.Searched_Tool and self.Searched_Tool != "            " in self.searchTool:
+            
+            self.newwindow = tk.Frame(self.frame,takefocus=True,bg='red',width=root.winfo_screenwidth(),height=root.winfo_screenheight()//8)
+            
+            lbl = Label(self.newwindow, text="Username")
+            lbl1 = Label(self.newwindow, text="Password")
 
-        self.searchTool = file.read()
 
-        self.yes=self.d['Tool Condition:']
-
-
-        if self.Searched_Tool and self.Searched_Tool != "            " in self.searchTool:
-            self.show_gui = Label(self.master, text=self.searchTool, font=('courier', 12, 'bold'), bg="#0984e3")
-            self.show_gui.place(x=44, y=215)
-            #self.show_gui.pack(padx=6, pady=200)
+       #self.app = UserPanelFrame(self.newWindow)
+       #self.newWindow.geometry('220x220+350+22')
+       #self.newWindow.title("Shared Power Login Form")
+          
         else:
             tm.showerror("Invalid ToolName", "No Such Tool Is Uploaded By Any Registered User In Our Database")
 
@@ -1393,15 +1158,15 @@ class hireTools(SearchTools):
                , command=self.hired_tools).place(x=210,
                                                  y=464)
 
-        self.label_6 = Label(master, text="Copyright@ Developers of Shahu, 2019", width=60, font=('Helvetica', 9),
-                             cursor="hand2")
-        self.label_6.place(x=80, y=512)
-        self.label_6.bind('<Button-1>', SplashScreenFrame.open_terms)
+       # self.label_6 = Label(master, text="Copyright@ Developers of Shahu, 2019", width=60, font=('Helvetica', 9),
+                             #cursor="hand2")
+        #self.label_6.place(x=80, y=512)
+        #self.label_6.bind('<Button-1>', SplashScreenFrame.open_terms)
 
-        self.img2 = PhotoImage(file="Images\yup1.png")
+        #self.img2 = PhotoImage(file="Images\yup1.png")
 
-        self.lab2 = Label(master, image=self.img2)
-        self.lab2.place(x=20, y=23)
+        #self.lab2 = Label(master, image=self.img2)
+        #self.lab2.place(x=20, y=23)
 
         self.hire1 = PhotoImage(file="Images\hiretool.png")
 
@@ -1458,92 +1223,8 @@ class hireTools(SearchTools):
 
             self.Date = date.today()
 
-            file = open("Text File Handling\hiredTools.txt", "a")
-
-            file.write("\n")
-            file.write("                  #####Registered User Hired Tools Info#####")
-            file.write("\n")
-            file.write("\n")
-
-            file.write("Name of Tool:           ")
-            file.write(self.nameTool)
-
-            file.write("\n")
-            file.write("Hired Date:             ")
-            file.write(self.HireDate)
-
-            file.write("\n")
-            file.write("Hire Days:              ")
-            file.write(self.HireDays)
-
-            file.write("\n")
-
-            file.write("Tool Rate:    HalfDay   $")
-            file.write(str(self.FullRate))
-            file.write("\n")
-
-            file.write("              Fullday   $")
-            file.write(str(self.HalfRate))
-
-            file.write("\n")
-
-            file.write("\n")
-            file.close()
-
-            file1 = open("Text File Handling\displayReturn.txt", "a+")
-            file1.write(self.nameTool)
-            file1.write("\n")
-
-            file1.close()
-
-            file2 = open("Text File Handling\Invoice.txt", "w")
-
-            file2.write("\n")
-            file2.write("               #####   Auto generated Invoice Monthly  #####")
-            file2.write("\n")
-            file2.write("\n")
-
-            file2.write("Name of Tool:                ")
-            file2.write(self.nameTool)
-
-            file2.write("\n")
-            file2.write("Hired Date:                  ")
-            file2.write(self.HireDate)
-
-            file2.write("\n")
-            file2.write("Hire Days:                   ")
-            file2.write(self.HireDays)
-
-            file2.write("\n")
-
-            file2.write("Tool Rate:    HalfDay        $")
-            file2.write(str(self.FullRate))
-            file2.write("\n")
-
-            file2.write("              Fullday        $")
-            file2.write(str(self.HalfRate))
-
-            file2.write("\n")
-
-            file2.write("InsuranceCharge              $5.00")
-
-            file2.write("\n")
-            file2.write("Total:        Fullday        $")
-            file2.write(str(self.InsurancePlus))
-
-            file2.write("\n")
-            file2.write("              Halfday        $")
-            file2.write(str(self.InsurancePlus2))
-
-            file2.write("\n")
-            file2.write("Generated Date:               ")
-            file2.write(str(self.Date))
-            file2.write("\n")
-
-            file2.close()
-
             tm.showinfo("Hired Tools Sucessful!! ",
-                        "Your desired tool has been successfully added to your hired tool list. !!Keep Exploring Shahu!! ")
+                        "Your desired tool has been successfully added to your hired tool list. !!Keep Exploring shared power!! ")
             self.master.withdraw()
 
             # print('Button is pressed!')
@@ -1608,13 +1289,9 @@ class ReturnTools(Frame):
 
 
         Button(master, text='Return This Tool', font=("arial", 13, "bold"), width=18, bg='#1f3a93', fg='white'
-               , command=self.delete_selected_item).place(x=205,
-                                                                                                                  y=464)
+               , command=self.delete_selected_item).place(x=205, y=464)
 
-        self.label_6 = Label(master, text="Copyright@ Developers of Shahu, 2019", width=60, font=('Helvetica', 9),
-                             cursor="hand2")
-        self.label_6.place(x=80, y=512)
-        self.label_6.bind('<Button-1>', SplashScreenFrame.open_terms)
+    
 
         self.img2 = PhotoImage(file="Images\Returnlogo.png")
 
@@ -1715,36 +1392,10 @@ class payTools(Frame):
         self.pay13 = Label(master, text="  Print Invoice ", font=("arial", 16, "bold"))
         self.pay13.place(x=318, y=358)
 
-        self.thankYou = Label(master, text="Thank You !! For Using Shahu  ", width=30, font=("bold", 23))
+        self.thankYou = Label(master, text="Thank You !!  ", width=30, font=("bold", 23))
         self.thankYou.place(x=20, y=438)
 
-        '''
-        self.label_name = Label(master, text="Tool Name",width=20,font=("bold", 13))
-        self.label_name.place(x=80,y=130)
-
-        self.entry_name = Entry(master,bd =5)
-        self.entry_name.place(x=240,y=130 ,width=180)
-
-        self.label_des = Label(master, text="Description",width=20,font=("bold", 13))
-        self.label_des.place(x=68,y=180)
-
-        self.entry_des = Entry(master,bd =5)
-        self.entry_des.place(x=240,y=180,width=180)
-
-        self.label_condition = Label(master, text="Condition", width=20, font=("bold", 13))
-        self.label_condition.place(x=70, y=230)
-
-        self.entry_condition = Entry(master, bd=5)
-        self.entry_condition.place(x=240, y=230, width=180)
-
-        self.label_rate = Label(master, text="Tool Rate",width=20,font=("bold", 13))
-        self.label_rate.place(x=70,y=280)
-        self.entry_rate = Entry(master, bd=5)
-        self.entry_rate.place(x=240, y=280, width=180)
-        '''
-        self.label_6 = Label(master, text="Copyright@ Developers of Shahu, 2019", width=60, font=('Helvetica', 9), cursor="hand2")
-        self.label_6.place(x=80, y=512)
-        self.label_6.bind('<Button-1>', SplashScreenFrame.open_terms)
+        
 
         self.img2 = PhotoImage(file="Images\yup1.png")
 
@@ -1835,14 +1486,12 @@ class InsuranceCompany(Frame):
 
 
 
-        #self.label = Label(root, text="Registration form",width=20,fg='#1f3a93',bg = "#81cfe0 ",font=("Times", 30),borderwidth=3, relief="sunken").place(x=55,y=53)
-
         self.button_minimize = Button(master, text="_", width=1, font=("bold", 17),relief="groove",activebackground="blue",command=self.minimizeProgram)
         self.button_minimize.place(x=491, y=2)
 
         self.button_back = Button(master, text="X", width=2, font=("bold", 17) , relief="groove" , activebackground="red",command=self.back)
         self.button_back.place(x=515, y=3)
-        self.title = Label(master, text="Welcome !! Explore Shahu  ", width=30, font=("bold", 20))
+        self.title = Label(master, text="Welcome !! ", width=30, font=("bold", 20))
         self.title.place(x=55, y=55)
 
         self.logout = PhotoImage(file="Images\logout.png")
@@ -1876,16 +1525,8 @@ class InsuranceCompany(Frame):
         self.view132.place(x=270, y=408)
 
 
-        '''
-        self.entry_condition = Entry(master, bd=5)
-        self.entry_condition.place(x=240, y=230, width=180)
 
-        self.label_rate = Label(master, text="Tool Rate",width=20,font=("bold", 13))
-        self.label_rate.place(x=70,y=280)
-        self.entry_rate = Entry(master, bd=5)
-        self.entry_rate.place(x=240, y=280, width=180)
-        '''
-        self.label_6 = Label(master, text="Copyright@ Developers of Shahu, 2019", width=55, font=('Helvetica', 9), cursor="hand2")
+        self.label_6 = Label(master, text="Shared Power Rental Service software", width=55, font=('Helvetica', 9), cursor="hand2")
         self.label_6.place(x=80, y=512)
         self.label_6.bind('<Button-1>', SplashScreenFrame.open_terms)
 
@@ -1904,24 +1545,18 @@ class InsuranceCompany(Frame):
     def view_info12(self):
         os.startfile("Text File Handling\YUploadTools.txt")
 
-        # if self.Searched_Tool== "   ":
-        # tm.showerror("Invalid ToolName", "No Such Tool Is Uploaded By Any Registered User In Our Database")
-
-
-        #self.show_gui = Label(self.master, text=self.searchTool, font=('courier', 12, 'bold'), bg="#0984e3")
-        #self.show_gui.place(x=18, y=220)
+    
 
 
     def logOut(self):
-        #print("This will logout you from user panel.")
+       
 
         tm.showwarning("Confirm LogOut",
-                    "Are You sure want to LogOut from  Shahu:The Ultimate Shared Power? ")
+                    "Are You sure want to LogOut from  shared Power? ")
 
         self.master.withdraw()
 
-        #print('Button is pressed!')
-        # self.RegistrationFrame.destroy()
+        
         self.newWindow = tk.Toplevel(self.master)
         self.app = LoginFrame(self.newWindow)
         self.newWindow.geometry('550x350+450+220')
@@ -1934,11 +1569,11 @@ class InsuranceCompany(Frame):
 
     def back(self):
                 tm.showwarning("Confirm Exit",
-                       "Are You sure want to exit from  Shahu:The Ultimate Shared Power? ")
+                       "Are You sure want to exit from Shared Power? ")
 
 
         # I need make windows itself destroy after clicking on this button and make other window appear in same position
-                #self.master = master
+                
                 self.master.withdraw()
 
                 #print ('Button is pressed!')
@@ -1959,26 +1594,12 @@ class InsuranceCompany(Frame):
 
 root = Tk()
 root.geometry('600x370+340+190')
-root.title("Shared Power Registration Form")
+root.title("Registration Form")
 rf = SplashScreenFrame(root)         #in this i need to change and try to implement all the frames in one coding
 root.resizable(False, False)
-root.overrideredirect(True)
+root.overrideredirect(False)
 #root.wm_iconbitmap('Icon1.ico')
 
-'''  
 
-Now this lines of codes are replaced by Kshitij Bajagain because ...these lines are not needed at all because
-we are using photos for every windows through Calling Inside each classes(windows) 
-
-img1= PhotoImage(file="regfinal1.png")
-
-lab1=Label(root, image=img1)
-lab1.place(x=160,y=35)
-
-img2= PhotoImage(file="yup1.png")
-
-lab2=Label(root, image=img2)
-lab2.place(x=20,y=23)
-'''
 
 root.mainloop()
