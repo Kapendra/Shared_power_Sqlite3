@@ -1,5 +1,5 @@
-
-
+#import Database_back
+import sqlite3
 from tkinter import *
 import tkinter as tk
 import tkinter.messagebox as tm
@@ -114,11 +114,11 @@ class LoginFrame():
         self.login_password = Entry(master, bd=5,show="*")
         self.login_password.place(x=240, y=180, width=180)
 
-        var2 = IntVar()
-        Checkbutton(master, text="Keep me logged in", variable=var2, font=('Times', 13,'underline'),cursor="hand1").place(x=190, y=225 , width=200)
+        # var2 = IntVar()
+        # Checkbutton(master, text="Keep me logged in", variable=var2, font=('Times', 13,'underline'),cursor="hand1").place(x=190, y=225 , width=200)
 
-        Button(master, text='Log In', font=("bold", 11), width=20, bg='Blue', fg='white', command=self._login_btn_clicked).place(
-            x=208, y=280)
+        Button(master, text='Log In', font=("bold", 11), width=20, bg='deep sky blue', fg='white', command=self.login_info).place(
+            x=215, y=280)
 
         #self.img2 = PhotoImage(file="Images\yup1.png")
 
@@ -142,6 +142,8 @@ class LoginFrame():
     def open_terms(self):
         os.startfile("Terms.txt")
 
+    
+
     '''
 
     This login_info method will save the login info of user and as well as this will check the 
@@ -155,9 +157,15 @@ class LoginFrame():
         self.Username_Login = self. entry_username.get()
         self.Password_Login = hashlib.sha1(self.login_password.get().encode()).hexdigest()
 
-       
+        db=sqlite3.connect("spower.db")
+        c=db.cursor()
+        find=c.execute("Select * from userinfo")
+        db.commit()
+        find=c.fetchall()
+        db.commit()
+        return
 
-        if  self.Username_Login and self.Password_Login in self.login1:
+        if  self.Username_Login and self.Password_Login in self.find:
             tm.showinfo("Login successful", "Welcome User")
             self.master.withdraw()
 
@@ -179,7 +187,7 @@ class LoginFrame():
             self.newWindow.title("Insurance Company Form")
 
         else:
-            tm.showerror("Login error", "Invalid Credentials")
+            tm.showerror("Login error", "Invalid Username Or Password")
 
     def minimizeProgram(self):
         #self.master.wm_state('iconic')
@@ -195,7 +203,7 @@ class LoginFrame():
 
       
 
-        if username == "kapendra" and password == "admin":
+        if username and password =="kapendra" :
             tm.showinfo("Login info", "Welcome User")
             self.master.withdraw()
 
@@ -396,14 +404,15 @@ class UserPanelFrame(Frame):
     # This will show the user to Calendar which will be easy and convenient to know current time and date.
 
     def cal1(self):
+        pass
 
 
 
                
                 # self.RegistrationFrame.destroy()
-                self.newWindow = tk.Toplevel(self.master)
-                self.app = CalendarShow(self.newWindow)
-                self.newWindow.title("Calendar")
+                # self.newWindow = tk.Toplevel(self.master)
+                # self.app = CalendarShow(self.newWindow)
+                # self.newWindow.title("Calendar")
                 # def select_image(self):
 
     # This will redirect the user to search tools GUI where user can search the uploaded tools inorder to hire those tools.
@@ -485,6 +494,11 @@ use search , hire , upload, return tools and monthly invoice generation.
 class RegistrationFrame(Frame):
 
     def __init__(self, master):
+
+
+
+
+
         global entry_fullname, \
             entry_Email, \
             entry_password, \
@@ -493,6 +507,10 @@ class RegistrationFrame(Frame):
             var_P, \
             var_nonP, \
             register_gender, gender_value
+
+
+
+
 
         self.master = master
         self.frame = tk.Frame(master)
@@ -570,7 +588,7 @@ class RegistrationFrame(Frame):
         Checkbutton(master, text="Seller", variable=var_P, command=RegistrationFrame.selected_account).place(x=375,y=430)
 
 
-        self.registerButton=Button(master, text='Register',font=("bold", 11),width=20,bg='brown',fg='white' ,command =self.save_info).place(x=208,y=462)
+        self.registerButton=Button(master, text='Register',font=("bold", 11),width=20,bg='cyan2',fg='white' ,command =self.save_info).place(x=208,y=462)
 
 
         self.label_5 = Button(master, text="Already Have A Account ", width=65, font=('Times', 12,'underline'),activebackground="blue",command=self.command)
@@ -659,7 +677,7 @@ class RegistrationFrame(Frame):
 
     def save_info(self):
 
-
+       
        self.name = self.entry_fullname.get()
        self.passw = self.entry_password.get()
        self.Username = self.entry_Email.get()
@@ -674,6 +692,12 @@ class RegistrationFrame(Frame):
 
        self.Date = date.today()
 
+
+
+
+     
+       
+       
        if (len(self.name) == 0 and len(self.passw) == 0) and (len(self.passw) != 8):
            tm.showerror("Registration Error",
                         "Registration is unsucessful. Can be validation error or may be one or more field is empty.Please Register again with required Validation")
@@ -688,12 +712,21 @@ class RegistrationFrame(Frame):
            self.account_selected1 = var_nonP.get()
            self.account_selected2 = var_P.get()
            self.account_selected1 = str(self.account_selected1)
-           self.account_selected2 = str(self.account_selected2)
+           # self.account_selected2 = str(self.account_selected2)
            self.gender_selected = gender_value.get()
            self.country_selected = country.get()
            self.Date = date.today()
 
-          
+           db = sqlite3.connect("spower.db")
+           c = db.cursor()
+           c.execute("CREATE TABLE IF NOT EXISTS userinfo (Fullname TEXT UNIQUE NOT NULL,"
+                     "Email TEXT,password VARCHAR(20),gender INTEGER(2),"
+                     "Country TEXT,phoneno INTEGER(10),AccountType TEXT,Date DATE)")
+           db.commit()
+           c.execute("INSERT INTO userinfo VALUES (?,?,?,?,?,?,?,?)",( self.name, self.Username, self.Password,
+                      self.gender_selected, self.account_selected1, self.pno, self.country_selected,self.Date))
+           db.commit()
+
            tm.showinfo("Successful!!",
                        " You are successfully registered!! Now yo will be redirected to LoginPage")
 
@@ -1106,8 +1139,7 @@ class hireTools(SearchTools):
         self.label_toolname = Label(master, text="Tool Name", width=20, font=("arial", 17))
         self.label_toolname.place(x=30, y=165)
 
-        with open('Text File Handling\YUploadYes.txt', 'r') as f:
-            self.d = json.loads(f.read().replace("'", '"'))
+
 
 
         # self.controller.get_page("searchTools").Searched_Tool.get()
@@ -1278,10 +1310,10 @@ class ReturnTools(Frame):
                                    ,width=30, height=10,bg='#808e9b',fg='white',highlightcolor="green")
         self.listOfTools.place(x=95, y=160)
 
-        self.data = []
-        with open("Text File Handling\displayReturn.txt", "r") as f:
-            for line in f:
-                self.data += line.splitlines()
+        self.data = ["scissor","laptop","washing machine","cooler"]
+        #with open("Text File Handling\displayReturn.txt", "r") as f:
+         #   for line in f:
+          #      self.data += line.splitlines()
 
         # Create your listbox here.
         for i in range(len(self.data)):
