@@ -117,7 +117,7 @@ class LoginFrame():
         # var2 = IntVar()
         # Checkbutton(master, text="Keep me logged in", variable=var2, font=('Times', 13,'underline'),cursor="hand1").place(x=190, y=225 , width=200)
 
-        Button(master, text='Log In', font=("bold", 11), width=20, bg='deep sky blue', fg='white', command=self.login_info).place(
+        Button(master, text='Log In', font=("bold", 11), width=20, bg='deep sky blue', fg='white', command=self._login_btn_clicked).place(
             x=215, y=280)
 
         #self.img2 = PhotoImage(file="Images\yup1.png")
@@ -159,13 +159,18 @@ class LoginFrame():
 
         db=sqlite3.connect("spower.db")
         c=db.cursor()
-        find=c.execute("Select * from userinfo")
+        result=c.execute("Select* FROM userinfo WHERE Fullname = ? and password= ? ",(self.Username_Login,self.Password_Login))
+        # result=c.fetchall()
         db.commit()
-        find=c.fetchall()
-        db.commit()
-        return
+        # db.commit()
+        return  result
 
-        if  self.Username_Login and self.Password_Login in self.find:
+        # find=c.fetchall()
+        # db.commit()
+        # return
+
+
+        if  self.Username_Login and self.Password_Login in result:
             tm.showinfo("Login successful", "Welcome User")
             self.master.withdraw()
 
@@ -287,7 +292,7 @@ class UserPanelFrame(Frame):
         #self.button_cal.place(x=10, y=680)
 
         self.show_profile = Button(master, text="View Profile", font=("bold", 9), relief="groove",
-                                 activebackground="Grey", command='')
+                                 activebackground="Grey", command=self.profile)
         self.show_profile.place(x=564, y=180)
 
         self.logout = PhotoImage(file="Images\logout.png")
@@ -344,8 +349,6 @@ class UserPanelFrame(Frame):
         # self.image_tk = PhotoImage(self.select_image())
         # self.canvas.create_image(0, 0, image=self.image_tk)
 
-    def open_terms(self):
-        os.startfile("Terms.txt")
 
     def search(self):
 
@@ -425,7 +428,7 @@ class UserPanelFrame(Frame):
                 #print ('Button is pressed!')
                 #self.RegistrationFrame.destroy()
                 self.newWindow = tk.Toplevel(self.master)
-                self.app = SearchTools(self.newWindow)
+                self.app = profile(self.newWindow)
                 self.newWindow.geometry('550x550+450+140')
                 self.newWindow.title("Search Tools Form")
 
@@ -479,6 +482,43 @@ def endProgram():
 
 
 
+"""THIS A user profile where user can see their own details but cant edit their or update therir details
+                                                                                                            """
+class profile(Frame):
+    def __init__(self,master):
+        self.master = master
+        self.frame = tk.Frame(master)
+
+
+
+        self.label_1 = Label(master, text="Name", width=20, font=("bold", 13))
+        self.label_1.place(x=68, y=130)
+
+
+
+        self.label_2 = Label(master, text="Email", width=20, font=("bold", 13))
+        self.label_2.place(x=68, y=180)
+
+
+
+
+
+        self.label_3 = Label(master, text="Gender", width=20, font=("bold", 13))
+        self.label_3.place(x=70, y=280)
+
+
+
+
+
+        self.label_4 = Label(master, text="Country", width=20, font=("bold", 13))
+        self.label_4.place(x=70, y=330)
+
+
+
+
+
+        label_q = Label(master, text="    Phone No", width=20, font=("bold", 13))
+        label_q.place(x=70, y=380)
 
 
 
@@ -724,7 +764,7 @@ class RegistrationFrame(Frame):
                      "Country TEXT,phoneno INTEGER(10),AccountType TEXT,Date DATE)")
            db.commit()
            c.execute("INSERT INTO userinfo VALUES (?,?,?,?,?,?,?,?)",( self.name, self.Username, self.Password,
-                      self.gender_selected, self.account_selected1, self.pno, self.country_selected,self.Date))
+                      self.gender_selected, self.country_selected, self.pno, self.account_selected1,self.Date))
            db.commit()
 
            tm.showinfo("Successful!!",
@@ -968,7 +1008,15 @@ class uploadTools(Frame):
 
             self.Date = date.today()
 
-
+            db = sqlite3.connect("spower.db")
+            c = db.cursor()
+            c.execute("CREATE TABLE IF NOT EXISTS toolsinfo(Toolname NOT NULL,"
+                      "Disc TEXT,Condition TEXT,fulldayp INTEGER,"
+                      "halfdayp INTEGER,date DATE)")
+            db.commit()
+            c.execute("INSERT INTO toolsinfo VALUES (?,?,?,?,?,?)", (self.nameTool,self.ToolDescription,self.Toolcondition, self.HalfRate, self.FullRate,
+                                                                     self.Date))
+            db.commit()
 
             tm.showinfo("Successfully Uploaded Tool!", "Now your tool can be hired other Registered User . !! Keep Exploring shared power")
 
@@ -1558,10 +1606,6 @@ class InsuranceCompany(Frame):
 
 
 
-        self.label_6 = Label(master, text="Shared Power Rental Service software", width=55, font=('Helvetica', 9), cursor="hand2")
-        self.label_6.place(x=80, y=512)
-        self.label_6.bind('<Button-1>', SplashScreenFrame.open_terms)
-
         self.img2 = PhotoImage(file="Images\yup1.png")
 
         self.lab2 = Label(master, image=self.img2)
@@ -1571,11 +1615,6 @@ class InsuranceCompany(Frame):
         master.resizable(False, False)
         master.overrideredirect(True)
 
-    def view_info1(self):
-        os.startfile("Text File Handling\database3.txt")
-
-    def view_info12(self):
-        os.startfile("Text File Handling\YUploadTools.txt")
 
     
 
