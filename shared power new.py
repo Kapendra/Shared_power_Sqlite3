@@ -117,7 +117,7 @@ class LoginFrame():
         # var2 = IntVar()
         # Checkbutton(master, text="Keep me logged in", variable=var2, font=('Times', 13,'underline'),cursor="hand1").place(x=190, y=225 , width=200)
 
-        Button(master, text='Log In', font=("bold", 11), width=20, bg='deep sky blue', fg='white', command=self._login_btn_clicked).place(
+        Button(master, text='Log In', font=("bold", 11), width=20, bg='deep sky blue', fg='white', command=self.login_info).place(
             x=215, y=280)
 
         #self.img2 = PhotoImage(file="Images\yup1.png")
@@ -159,18 +159,20 @@ class LoginFrame():
 
         db=sqlite3.connect("spower.db")
         c=db.cursor()
-        result=c.execute("Select* FROM userinfo WHERE Fullname = ? and password= ? ",(self.Username_Login,self.Password_Login))
-        # result=c.fetchall()
+        c.execute("Select* FROM userinfo WHERE Fullname = ? and password= ? ",(self.Username_Login,self.Password_Login))
+        #result=c.fetchall()
+        #return result
         db.commit()
         # db.commit()
-        return  result
+        #result
 
         # find=c.fetchall()
         # db.commit()
         # return
 
 
-        if  self.Username_Login and self.Password_Login in result:
+        if  self.Username_Login and self.Password_Login in c.fetchone():
+            
             tm.showinfo("Login successful", "Welcome User")
             self.master.withdraw()
 
