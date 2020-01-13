@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fce986f5-26a6-4701-aad4-349459d9421e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shared_power_Sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Shared_power_Sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared power new.py" beforeDir="false" afterPath="$PROJECT_DIR$/shared power new.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spower.db" beforeDir="false" afterPath="$PROJECT_DIR$/spower.db" afterDir="false" />
@@ -17,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/shared power new.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="497" lean-forward="true" selection-start-line="497" selection-end-line="497" />
+            <state relative-caret-position="170">
+              <caret line="1396" column="182" selection-start-line="1396" selection-start-column="182" selection-end-line="1396" selection-end-column="182" />
               <folding>
                 <element signature="e#22#36#0" expanded="true" />
               </folding>
@@ -37,33 +38,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>in</find>
-      <find>fullname</find>
-      <find>var2</find>
-      <find>registrationframe</find>
-      <find>Hiretool</find>
-      <find>commit</find>
-      <find>userpanel</find>
-      <find>Hiretools</find>
-      <find>Userpanel</find>
-      <find>hiretools</find>
-      <find>hiretool</find>
-      <find>d</find>
-      <find>shared power</find>
-      <find>homepage</find>
-      <find>endprogram</find>
-      <find>RegistrationFrame</find>
-      <find>registration</find>
-      <find>registrationFrame</find>
-      <find>login1</find>
-      <find>login</find>
-      <find>login_info</find>
-      <find>uploadtools</find>
       <find>save_info</find>
       <find>uploadtool</find>
       <find>save_inf</find>
       <find>view</find>
       <find>prof</find>
+      <find>search_results</find>
+      <find>tk</find>
+      <find>searchTools</find>
+      <find>self.search</find>
+      <find>search_result</find>
+      <find>print invoice</find>
+      <find>hire</find>
+      <find>search Tools</find>
+      <find>search</find>
+      <find>loginFrame</find>
+      <find>username</find>
+      <find>loginframe</find>
+      <find>view_info1</find>
+      <find>profile</find>
+      <find>login_info</find>
+      <find>tview</find>
+      <find>Login_info</find>
+      <find>searchtools</find>
+      <find>hiretool</find>
+      <find>hiretools</find>
+      <find>upload tools</find>
+      <find>Hire tools</find>
+      <find>invoice</find>
+      <find>insert</find>
+      <find>hire tools</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -80,11 +84,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="158" />
-    <option name="y" value="41" />
-    <option name="width" value="1752" />
-    <option name="height" value="1050" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="155" />
+    <option name="width" value="1159" />
+    <option name="height" value="1039" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -92,7 +95,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -104,10 +106,17 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Shared Power\Shared_power_Sqlite3" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -229,15 +238,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="127" y="33" width="1401" height="840" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13186814" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.04095112" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2045134" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.14285715" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39886847" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -302,8 +311,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shared power new.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="497" lean-forward="true" selection-start-line="497" selection-end-line="497" />
+        <state relative-caret-position="170">
+          <caret line="1396" column="182" selection-start-line="1396" selection-start-column="182" selection-end-line="1396" selection-end-column="182" />
           <folding>
             <element signature="e#22#36#0" expanded="true" />
           </folding>
