@@ -1921,7 +1921,7 @@ class InsuranceCompany(Frame):
 
     def back(self):
         tm.showwarning("Confirm Exit",
-                       "Are You sure want to exit from  Shahu:The Ultimate Shared Power? ")
+                       "Are You sure want to exit Shared Power? ")
 
         # I need make windows itself destroy after clicking on this button and make other window appear in same position
         # self.master = master

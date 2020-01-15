@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fce986f5-26a6-4701-aad4-349459d9421e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shared_power_Sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Shared_power_Sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared power new.py" beforeDir="false" afterPath="$PROJECT_DIR$/shared power new.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spower.db" beforeDir="false" afterPath="$PROJECT_DIR$/spower.db" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/shared power new.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="1955" column="51" selection-start-line="1955" selection-start-column="51" selection-end-line="1955" selection-end-column="51" />
+            <state relative-caret-position="193">
+              <caret line="1923" column="50" selection-start-line="1923" selection-start-column="50" selection-end-line="1923" selection-end-column="50" />
               <folding>
                 <element signature="e#22#36#0" expanded="true" />
               </folding>
@@ -38,7 +36,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>upload tools</find>
       <find>insert</find>
       <find>i</find>
       <find>Search tools</find>
@@ -68,6 +65,7 @@
       <find>search_result</find>
       <find>search_results</find>
       <find>InsuranceCompany</find>
+      <find>confirm exit</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -319,8 +317,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shared power new.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="1955" column="51" selection-start-line="1955" selection-start-column="51" selection-end-line="1955" selection-end-column="51" />
+        <state relative-caret-position="193">
+          <caret line="1923" column="50" selection-start-line="1923" selection-start-column="50" selection-end-line="1923" selection-end-column="50" />
           <folding>
             <element signature="e#22#36#0" expanded="true" />
           </folding>
