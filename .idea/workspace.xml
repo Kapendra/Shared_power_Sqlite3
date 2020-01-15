@@ -18,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/shared power new.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="1396" column="182" selection-start-line="1396" selection-start-column="182" selection-end-line="1396" selection-end-column="182" />
+            <state relative-caret-position="289">
+              <caret line="1955" column="51" selection-start-line="1955" selection-start-column="51" selection-end-line="1955" selection-end-column="51" />
               <folding>
                 <element signature="e#22#36#0" expanded="true" />
               </folding>
@@ -38,36 +38,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>save_info</find>
-      <find>uploadtool</find>
-      <find>save_inf</find>
-      <find>view</find>
-      <find>prof</find>
-      <find>search_results</find>
-      <find>tk</find>
-      <find>searchTools</find>
-      <find>self.search</find>
-      <find>search_result</find>
-      <find>print invoice</find>
-      <find>hire</find>
-      <find>search Tools</find>
-      <find>search</find>
-      <find>loginFrame</find>
-      <find>username</find>
-      <find>loginframe</find>
-      <find>view_info1</find>
-      <find>profile</find>
-      <find>login_info</find>
-      <find>tview</find>
-      <find>Login_info</find>
-      <find>searchtools</find>
-      <find>hiretool</find>
-      <find>hiretools</find>
       <find>upload tools</find>
-      <find>Hire tools</find>
-      <find>invoice</find>
       <find>insert</find>
+      <find>i</find>
+      <find>Search tools</find>
+      <find>search_res</find>
+      <find>searchtools</find>
+      <find>hire1</find>
       <find>hire tools</find>
+      <find>Hire tools</find>
+      <find>search</find>
+      <find>searchTools</find>
+      <find>view</find>
+      <find>print in</find>
+      <find>print invoice</find>
+      <find>return</find>
+      <find>user_info</find>
+      <find>login_info</find>
+      <find>file_path</find>
+      <find>search tools</find>
+      <find>SearchTools</find>
+      <find>view user info</find>
+      <find>search_re</find>
+      <find>invoice</find>
+      <find>return tools</find>
+      <find>view_info</find>
+      <find>profile</find>
+      <find>view_user</find>
+      <find>search_result</find>
+      <find>search_results</find>
+      <find>InsuranceCompany</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -85,8 +85,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="155" />
-    <option name="width" value="1159" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="954" />
     <option name="height" value="1039" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -247,7 +248,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.14285715" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39886847" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.2135785" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -309,10 +310,17 @@
     <entry file="file://$PROJECT_DIR$/Share tools.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/tkinter/constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/shared power new.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="1396" column="182" selection-start-line="1396" selection-start-column="182" selection-end-line="1396" selection-end-column="182" />
+        <state relative-caret-position="289">
+          <caret line="1955" column="51" selection-start-line="1955" selection-start-column="51" selection-end-line="1955" selection-end-column="51" />
           <folding>
             <element signature="e#22#36#0" expanded="true" />
           </folding>
