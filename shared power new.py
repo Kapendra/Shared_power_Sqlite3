@@ -117,7 +117,7 @@ class LoginFrame():
         self.login_password = Entry(master, bd=5,show="*")
         self.login_password.place(x=240, y=180, width=180)
 
-        # var2 = IntVar()
+
         # Checkbutton(master, text="Keep me logged in", variable=var2, font=('Times', 13,'underline'),cursor="hand1").place(x=190, y=225 , width=200)
 
         Button(master, text='Log In', font=("bold", 11), width=20, bg='deep sky blue', fg='white', command=self.login_info).place(
@@ -133,9 +133,7 @@ class LoginFrame():
         self.lab1 = Label(master, image=self.img1)
         self.lab1.place(x=180,y=30)
 
-       # self.label_6 = Label(master, text="Shared Power Rental Service software", width=60, font=('Helvetica', 9), cursor="hand2")
-       # self.label_6.place(x=88, y=320)
-       # self.label_6.bind('<Button-1>', SplashScreenFrame.open_terms)
+
 
         master.resizable(False,False)
         master.overrideredirect(True)
@@ -162,8 +160,9 @@ class LoginFrame():
         
         db=sqlite3.connect("spower.db")
         c=db.cursor()
-        c.execute("Select* FROM userinfo WHERE Fullname = ? and password= ? ",(self.Username_Login,self.Password_Login))
+        c.execute("Select * FROM userinfo WHERE Fullname = ? and password= ? ",(self.Username_Login,self.Password_Login))
         result=c.fetchone()
+        print(result)
         db.commit()
 
 
@@ -171,19 +170,16 @@ class LoginFrame():
         insurancname="Insurance"
         Inpasword="Insurance"
         # c.execute(
-        #     "CREATE TABLE IF NOT EXISTS insuranceinfo(Fullname TEXT ,password VARCHAR)")
-        c.execute("select* FROM insuranceinfo where Fullname=? and password=?", (self.Username_Login, self.passw1))
+        #      "CREATE TABLE IF NOT EXISTS insuranceinfo(Fullname TEXT ,password VARCHAR)")
+        # c.execute("select* FROM insuranceinfo where Fullname=? and password=?", (self.Username_Login, self.passw1))
         # insuranc = c.fetchone()
-        db.commit()
+        # db.commit()
 
 
 
         if self.Username_Login==insurancname and self.passw1==Inpasword :
-
             self.master.withdraw()
             tm.showinfo("Login successful", "Welcome to Insurance Company Profile ")
-            #print('Button is pressed!')
-            # self.RegistrationFrame.destroy()
             self.newWindow = tk.Toplevel(self.master)
             self.app = InsuranceCompany(self.newWindow)
             self.newWindow.geometry('550x550+450+140')
@@ -193,17 +189,31 @@ class LoginFrame():
 
 
 
-        elif  self.Username_Login and self.Password_Login in result:
-            
-            tm.showinfo("Login successful", "Welcome User")
-            self.master.withdraw()
+        elif result:
+            if self.Username_Login and self.Password_Login in result:
+                if result[6] == "0":
+                    tm.showinfo("Login successful", "Welcome User")
+                    self.master.withdraw()
 
-            #print('Button is pressed!')
-            # self.RegistrationFrame.destroy()
-            self.newWindow = tk.Toplevel(self.master)
-            self.app = UserPanelFrame(self.newWindow)
-            self.newWindow.geometry('720x720+350+15')
-            self.newWindow.title("Shared Power Login Form")
+                    # print('Button is pressed!')
+                    # self.RegistrationFrame.destroy()
+                    self.newWindow = tk.Toplevel(self.master)
+                    self.app = UserPanelFrame(self.newWindow)
+                    self.newWindow.geometry('720x720+350+15')
+                    self.newWindow.title("Shared Power Login Form")
+                else:
+                    print("others")
+                    tm.showinfo("Login successful", "Welcome User")
+                    self.master.withdraw()
+
+                    # print('Button is pressed!')
+                    # self.RegistrationFrame.destroy()
+                    self.newWindow = tk.Toplevel(self.master)
+                    self.app = UserPanelFrame2(self.newWindow)
+                    self.newWindow.geometry('720x720+350+15')
+                    self.newWindow.title("Shared Power Login Form")
+
+
 
 
         # elif self.Username_Login==insurancname and self.passw1==Inpasword :
@@ -360,18 +370,18 @@ class UserPanelFrame(Frame):
         self.upload1 = Label(master, text="Upload Tools ", font=("arial", 16,"bold"))
         self.upload1.place(x=475, y=395)
 
-        # self.hire = PhotoImage(file="Images\hire1.png")
-        # self.hire_tools = Button(master, text="Hire Tools",  width=210, height=160, image=self.hire,font=('arial', 16, "bold"), cursor="hand1",command=self.hire1,activebackground="cyan")
-        # self.hire_tools.place(x=210, y=445)
+        self.hire = PhotoImage(file="Images\hire1.png")
+        self.hire_tools = Button(master, text="Return Tools",  width=210, height=160, image=self.hire,font=('arial', 16, "bold"), cursor="hand1",command=self.return1,activebackground="cyan")
+        self.hire_tools.place(x=210, y=445)
         #
-        # self.hire13 = Label(master, text="Hire Tools ", font=("arial", 16,"bold"))
-        # self.hire13.place(x=257, y=623)
+        self.hire13 = Label(master, text="Return tools ", font=("arial", 16,"bold"))
+        self.hire13.place(x=257, y=623)
 
         self.pay = PhotoImage(file="Images\paynow1.png")
-        self.pay_tools = Button(master, text="Payment & Delivery", width=210, height=160, image=self.pay,font=('arial', 16, "bold"), cursor="hand1",command=self.pay1,activebackground="brown",activeforeground="green")
+        self.pay_tools = Button(master, text="Invoice", width=210, height=160, image=self.pay,font=('arial', 16, "bold"), cursor="hand1",command=self.print_invoice,activebackground="brown",activeforeground="green")
         self.pay_tools.place(x=438, y=445)
 
-        self.pay13 = Label(master, text="Payment & Delivery ", font=("arial", 16,"bold"))
+        self.pay13 = Label(master, text="Invoice ", font=("arial", 16,"bold"))
         self.pay13.place(x=446, y=623)
 
         # self.image_tk = PhotoImage(self.select_image())
@@ -405,17 +415,19 @@ class UserPanelFrame(Frame):
     # This will redirect the user to Payment GUI where after entering some details we can generate invoice
     # after returning the tool.
 
-    def pay1(self):
 
-                self.master.withdraw()
 
-                
-                # self.RegistrationFrame.destroy()
-                self.newWindow = tk.Toplevel(self.master)
-                self.app = payTools(self.newWindow)
-                self.newWindow.geometry('550x550+450+140')
-                self.newWindow.title("Payment Tools Form")
+    def return1(self):
+        # I need make windows itself destroy after clicking on this button and make other window appear in same position
+        # self.master = master
+        self.master.withdraw()
 
+        # print('Button is pressed!')
+        # self.RegistrationFrame.destroy()
+        self.newWindow = tk.Toplevel(self.master)
+        self.app = ReturnTools(self.newWindow)
+        self.newWindow.geometry('550x550+450+140')
+        self.newWindow.title("Upload Tools Form")
 
     # This will redirect the user to hire tools GUI where after entering some details we can sucessfully hire uploaded tools.
 
@@ -434,17 +446,7 @@ class UserPanelFrame(Frame):
 
     # This will show the user to Calendar which will be easy and convenient to know current time and date.
 
-    def cal1(self):
-        pass
 
-
-
-               
-                # self.RegistrationFrame.destroy()
-                # self.newWindow = tk.Toplevel(self.master)
-                # self.app = CalendarShow(self.newWindow)
-                # self.newWindow.title("Calendar")
-                # def select_image(self):
 
     # This will redirect the user to search tools GUI where user can search the uploaded tools inorder to hire those tools.
     def profile(self):
@@ -457,9 +459,21 @@ class UserPanelFrame(Frame):
                 #self.RegistrationFrame.destroy()
                 self.newWindow = tk.Toplevel(self.master)
                 self.app = profile(self.newWindow)
-                self.newWindow.geometry('550x550+450+140')
+                self.newWindow.geometry('550x550+450+160')
                 self.newWindow.title("Profile")
 
+
+    def print_invoice(self):
+
+        self.date=date.today()
+
+        if self.date == self.date:
+            tm.showwarning("Something went wrong ","Today is not the last of month \n.you are not able to print invoice but You can preview")
+
+            self.newWindow = tk.Toplevel(self.master)
+            self.app = invoice(self.newWindow)
+            self.newWindow.geometry('550x550+450+140')
+            self.newWindow.title("Invoice")
 
 
 
@@ -506,12 +520,203 @@ def endProgram():
     root.destroy()
 
 
+'''
+
+This is UserPanel Class. After getting loged in with correct credentials the user will be redirected to this 
+panel.This user Panel gives the user the function like searching the tool , uploading the tool, hiring the tool
+, returning the tool, and generating the invoice by clicking on respective functions.
+
+'''
+
+
+class UserPanelFrame2(Frame):
+
+    def __init__(self, master):
+        self.master = master
+        self.frame = tk.Frame(master)
+
+        self.title = Label(master, text="  Current Time", font=("bold", 11))
+        self.title.place(x=605, y=80)
+
+        self.q = Canvas(master)
+        self.q.place(x=600, y=97)
+
+        self.localtime = time.asctime(time.localtime(time.time()))
+        self.q.create_text(14, 28, text=self.localtime, font=('arial', 12, 'bold'))
+
+        self.button_minimize = Button(master, text="_", width=1, font=("bold", 17), relief="groove",
+                                      activebackground="blue", command=self.minimizeProgram)
+        self.button_minimize.place(x=661, y=2)
+
+        self.button_destroy = Button(master, text="X", width=2, font=("bold", 17), relief="groove",
+                                     activebackground="red", command=endProgram)
+        self.button_destroy.place(x=685, y=3)
+
+        # self.label_6 = Label(master, text="Shared Power Rental Service software", width=60, font=('Helvetica', 9),cursor="hand2")
+        # self.label_6.place(x=196, y=682)
+        # self.label_6.bind('<Button-1>', SplashScreenFrame.open_terms)
+
+        self.title = Label(master, text="Welcome !! ", width=30, font=("bold", 22))
+        self.title.place(x=110, y=35)
+
+        # self.tool = PhotoImage(file="Images\Tool1.png")
+
+        # self.tool1 = Label(master, image=self.tool)
+        # self.tool1.place(x=125, y=90)
+
+        # self.tool1 = PhotoImage(file="Images\Tool1.png")
+
+        # self.tool12 = Label(master, image=self.tool1)
+        # self.tool12.place(x=520, y=90)
+
+        # self.img2 = PhotoImage(file="Images\yup1.png")
+
+        # self.lab2 = Label(master, image=self.img2)
+        # self.lab2.place(x=10, y=5)
+
+        # self.img3 = PhotoImage(file="Sp1234.png")
+
+        # self.lab1 = Label(master, image=self.img3)
+        # self.lab1.place(x=590, y=620)
+
+        master.resizable(False, False)
+        master.overrideredirect(True)
+
+
+
+        self.show_profile = Button(master, text="View Profile", font=("bold", 9), relief="groove",
+                                   activebackground="Grey", command=self.profile)
+        self.show_profile.place(x=564, y=180)
+
+        self.logout = PhotoImage(file="Images\logout.png")
+        self.user_logout = Button(master, image=self.logout, width=55, height=55, relief="flat",
+                                  activebackground="Blue", command=self.logOut)
+        self.user_logout.place(x=659, y=659)
+
+        self.man = PhotoImage(file="Images\Man.png")
+
+        self.manphoto = Label(master, image=self.man)
+        self.manphoto.place(x=10, y=160)
+
+        self.fetch = Label(master, text="Rent your Tools! ", width=25, font=("bold", 16))
+        self.fetch.place(x=203, y=100)
+        self.s1 = PhotoImage(file="Images\s1.png")
+        self.search_tools = Button(master, text="Search Tools", width=210, height=160, image=self.s1,
+                                   font=('arial', 16, "bold"), command=self.search,
+                                   activebackground="blue")
+        self.search_tools.place(x=210, y=215)
+
+        self.search1 = Label(master, text="Search Tools ", font=("arial", 16, "bold"))
+        self.search1.place(x=240, y=395)
+
+        self.upload1 = PhotoImage(file="Images\yup1.png")
+        self.up = PhotoImage(file="Images\Vis3.png")
+        self.up = PhotoImage(file="Images\pload1.png")
+        self.upload_tools = Button(master, text="Upload Tools", width=210, height=160, image=self.up,
+                                   font=('arial', 7, "bold"), cursor="hand1", command=self.upload,
+                                   activebackground="green",
+                                   activeforeground="red")
+        self.upload_tools.place(x=438, y=215)
+
+        self.upload1 = Label(master, text="Upload Tools ", font=("arial", 16, "bold"))
+        self.upload1.place(x=475, y=395)
+
+        # self.hire = PhotoImage(file="Images\hire1.png")
+        # self.hire_tools = Button(master, text="Hire Tools",  width=210, height=160, image=self.hire,font=('arial', 16, "bold"), cursor="hand1",command=self.hire1,activebackground="cyan")
+        # self.hire_tools.place(x=210, y=445)
+        #
+        # self.hire13 = Label(master, text="Hire Tools ", font=("arial", 16,"bold"))
+        # self.hire13.place(x=257, y=623)
+
+        # self.pay = PhotoImage(file="Images\paynow1.png")
+        # self.pay_tools = Button(master, text="Payment & Delivery", width=210, height=160, image=self.pay,
+        #                         font=('arial', 16, "bold"), cursor="hand1", command=self.pay1, activebackground="brown",
+        #                         activeforeground="green")
+        # self.pay_tools.place(x=438, y=445)
+        #
+        # self.pay13 = Label(master, text="Payment & Delivery ", font=("arial", 16, "bold"))
+        # self.pay13.place(x=446, y=623)
+
+        # self.image_tk = PhotoImage(self.select_image())
+        # self.canvas.create_image(0, 0, image=self.image_tk)
+
+    def search(self):
+        self.master.withdraw()
+        self.newWindow = tk.Toplevel(self.master)
+        self.app = SearchTools(self.newWindow)
+        self.newWindow.geometry('1200x680+50+50')
+        self.newWindow.title("Search Tools Form")
+
+    # This will redirect the user to upload tools GUI where after entering some details we can upload tools.
+    def upload(self):
+        self.master.withdraw()
+
+        # print ('Button is pressed!')
+        # self.RegistrationFrame.destroy()
+        self.newWindow = tk.Toplevel(self.master)
+        self.app = uploadTools2(self.newWindow)
+        self.newWindow.geometry('550x550+450+140')
+        self.newWindow.title("Upload Tools Form")
+
+
+
+    # This will redirect the user to search tools GUI where user can search the uploaded tools inorder to hire those tools.
+    def profile(self):
+        # I need make windows itself destroy after clicking on this button and make other window appear in same position
+        # self.master = master
+        self.master.withdraw()
+
+        # print ('Button is pressed!')
+        # self.RegistrationFrame.destroy()
+        self.newWindow = tk.Toplevel(self.master)
+        self.app = profile2(self.newWindow)
+        self.newWindow.geometry('550x700+450+140')
+        self.newWindow.title("Profile")
+
+    def minimizeProgram(self):
+        # root.wm_state('iconic')
+        self.master.withdraw()
+        # root.state("withdrawn")
+
+    # This logOut function will help user to logout him or her from software .
+    def logOut(self):
+        # print("This will logout you from user panel.")
+
+        tm.showwarning("Confirm LogOut",
+                       "Are You sure want to LogOut from Shared Power? ")
+
+        self.master.withdraw()
+
+        # print('Button is pressed!')
+        # self.RegistrationFrame.destroy()
+        self.newWindow = tk.Toplevel(self.master)
+        self.app = LoginFrame(self.newWindow)
+        self.newWindow.geometry('550x350+450+220')
+        self.newWindow.title("Shared Power Login Form")
+
+
+def onRegister():
+    # json_data = open(file_directory).read()
+    tkinter.messagebox.showinfo("Successful!! You are successfully registered!!")
+
+
+def minimizeProgram():
+    # root.wm_state('iconic')
+    root.withdraw()
+    # root.state("withdrawn")
+
+
+def endProgram():
+    # top.quit()
+    tm.showinfo("Confirm Exit",
+                "Are You sure want to exit Shared Power? ")
+    root.destroy()
 
 
 """THIS A user profile where user can see their own details but cant edit their or update therir details                                                                                                            """
 
 
-class profile(Frame):
+class profile2(Frame):
     def __init__(self,master):
         
         self.master = master
@@ -538,16 +743,16 @@ class profile(Frame):
         country=user[4]
         phoneno=user[5]
 
-        # self.button_minimize = Button(master, text="_", width=1, font=("bold", 17), relief="groove",
-        #                               activebackground="blue", command=self.minimizeProgram)
-        # self.button_minimize.place(x=661, y=2)
-        #
-        # self.button_destroy = Button(master, text="X", width=2, font=("bold", 17), relief="groove",
-        #                              activebackground="red", command=endProgram)
-        # self.button_destroy.place(x=685, y=3)
+        self.button_minimize = Button(master, text="_", width=1, font=("bold", 17), relief="groove",
+                                      activebackground="blue", command=self.minimizeProgram)
+        self.button_minimize.place(x=492, y=2)
 
-        # master.resizable(False, False)
-        # master.overrideredirect(True)
+        self.button_destroy = Button(master, text="X", width=2, font=("bold", 17), relief="groove",
+                                     activebackground="red", command=self.back)
+        self.button_destroy.place(x=520, y=2)
+
+        master.resizable(False, False)
+        master.overrideredirect(True)
 
 
         self.profile = PhotoImage(file="Images\profile.png")
@@ -589,16 +794,114 @@ class profile(Frame):
         label_qget= Label(master, text=phoneno, width=20, font=("bold", 13))
         label_qget.place(x=210, y=320)
 
-        # def minimizeProgram():
-        #     # root.wm_state('iconic')
-        #     root.withdraw()
-        #     # root.state("withdrawn")
-        #
-        # def endProgram():
-        #     # top.quit()
-        #     tm.showinfo("Confirm Exit",
-        #                 "Are You sure want to exit Shared Power? ")
-        #     root.destroy()
+    def minimizeProgram(self):
+        # root.wm_state('iconic')
+        self.master.withdraw()
+            # root.state("withdrawn")
+
+    def back(self):
+            # I need make windows itself destroy after clicking on this button and make other window appear in same position
+            # self.master = master
+        self.master.withdraw()
+
+            # print ('Button is pressed!')
+            # self.RegistrationFrame.destroy()
+        self.newWindow = tk.Toplevel(self.master)
+        self.app = UserPanelFrame2(self.newWindow)
+        self.newWindow.geometry('720x720+350+15')
+        self.newWindow.title("Shared Power Login Form")
+
+
+
+"""this is another profile frame for Userpanelframe """
+
+
+class profile(Frame):
+    def __init__(self, master):
+        self.master = master
+        self.frame = tk.Frame(master)
+
+        user_information = []
+        db = sqlite3.connect("spower.db")
+        c = db.cursor()
+
+        # c.execute('SELECT * FROM userinfo where Fullname= ?',(str(LoginFrame.username)))
+        statement = 'select * from userinfo where Fullname = "%s"' % (str(LoginFrame.username))
+
+        c.execute(statement)
+
+        # db.commit()
+        user = c.fetchone()
+
+        fullname = user[0]
+        email = user[1]
+        gender = user[3]
+        country = user[4]
+        phoneno = user[5]
+
+        self.button_minimize = Button(master, text="_", width=1, font=("bold", 17), relief="groove",
+                                      activebackground="blue", command=self.minimizeProgram)
+        self.button_minimize.place(x=492, y=2)
+
+        self.button_destroy = Button(master, text="X", width=2, font=("bold", 17), relief="groove",
+                                     activebackground="red", command=self.back)
+        self.button_destroy.place(x=520, y=2)
+
+        master.resizable(False, False)
+        master.overrideredirect(True)
+
+        self.profile = PhotoImage(file="Images\profile.png")
+        self.profileimg = Label(master, image=self.profile)
+        self.profileimg.place(x=180, y=8)
+
+        self.label_1 = Label(master, text="Name", width=20, font=("bold", 13))
+        self.label_1.place(x=70, y=130)
+
+        self.label_1get = Label(master, text=fullname, width=20, font=("bold", 13))
+        self.label_1get.place(x=210, y=130)
+
+        self.label_2 = Label(master, text="Email", width=20, font=("bold", 13))
+        self.label_2.place(x=70, y=180)
+
+        self.label_2get = Label(master, text=email, width=20, font=("bold", 13))
+        self.label_2get.place(x=210, y=180)
+
+        self.label_3 = Label(master, text="Gender", width=20, font=("bold", 13))
+        self.label_3.place(x=70, y=230)
+
+        self.label_3get = Label(master, text=gender, width=20, font=("bold", 13))
+        self.label_3get.place(x=210, y=230)
+
+        self.label_4 = Label(master, text="Country", width=20, font=("bold", 13))
+        self.label_4.place(x=70, y=270)
+
+        self.label_4get = Label(master, text=country, width=20, font=("bold", 13))
+        self.label_4get.place(x=210, y=270)
+
+        label_q = Label(master, text="    Phone No", width=20, font=("bold", 13))
+        label_q.place(x=70, y=320)
+
+        label_qget = Label(master, text=phoneno, width=20, font=("bold", 13))
+        label_qget.place(x=210, y=320)
+
+    def minimizeProgram(self):
+
+            # root.wm_state('iconic')
+        self.master.withdraw()
+            # root.state("withdrawn")
+
+    def back(self):
+
+            # I need make windows itself destroy after clicking on this button and make other window appear in same position
+            # self.master = master
+        self.master.withdraw()
+
+            # print ('Button is pressed!')
+            # self.RegistrationFrame.destroy()
+        self.newWindow = tk.Toplevel(self.master)
+        self.app = UserPanelFrame(self.newWindow)
+        self.newWindow.geometry('720x720+350+15')
+        self.newWindow.title("Shared Power Login Form")
 
 
 '''
@@ -815,6 +1118,8 @@ class RegistrationFrame(Frame):
                         "Registration is unsucessful. Can be validation error or may be one or more field is empty.Please Register again with required Validation")
 
 
+
+
        else:
            self.name = self.entry_fullname.get()
            self.passw = self.entry_password.get()
@@ -834,6 +1139,8 @@ class RegistrationFrame(Frame):
            c.execute("CREATE TABLE IF NOT EXISTS userinfo (Fullname TEXT UNIQUE NOT NULL,"
                      "Email TEXT,password VARCHAR(20),gender INTEGER(2),"
                      "Country TEXT,phoneno INTEGER(10),AccountType TEXT,Date DATE)")
+
+
            db.commit()
            c.execute("INSERT INTO userinfo VALUES (?,?,?,?,?,?,?,?)",( self.name, self.Username, self.Password,
                       self.gender_selected, self.country_selected, self.pno, self.account_selected1,self.Date))
@@ -1037,6 +1344,166 @@ class uploadTools(Frame):
                 #self.RegistrationFrame.destroy()
                 self.newWindow = tk.Toplevel(self.master)
                 self.app = UserPanelFrame(self.newWindow)
+                self.newWindow.geometry('720x720+350+15')
+                self.newWindow.title("Shared Power Login Form")
+
+    def minimizeProgram(self):
+        # root.wm_state('iconic')
+        self.master.withdraw()
+        # root.state("withdrawn")
+
+
+    def upload_info(self):
+       # global gender_selected
+
+        #global country_selected
+        #global account_selected2, account_selected1
+        #global name, Username, Password,CNo
+
+       self.nameTool = self.entry_toolname.get()
+
+       self.ToolDescription = self.entry_tooldes.get()
+
+       self.Toolcondition = self.entry_toolcondition.get()
+
+       self.FullRate = self.entry_toolrate2.get()
+
+       self.HalfRate = self.entry_toolrate.get()
+
+       self.nameTool = self.entry_toolname.get()
+
+       self.list1 = [self.nameTool, self.ToolDescription, self.Toolcondition, self.FullRate, self.HalfRate]
+       #print(self.list1)
+
+       self.Dict = {'Name of Tool:': self.nameTool, 'Description:': self.ToolDescription, 'Condition:':self.Toolcondition,'FullDayRate':self.FullRate,'HalfDayRate':self.HalfRate }
+
+       if len(self.nameTool) == 0 and len(self.ToolDescription) == 0 and len(self.Toolcondition) == 0 :
+           tm.showerror("Upload Tool Error",
+                        "UploadTool is unsucessful. May be one or more field is empty.")
+       else:
+
+            self.ToolDescription = self.entry_tooldes.get()
+
+            self.Toolcondition = self.entry_toolcondition.get()
+
+            self.FullRate = self.entry_toolrate2.get()
+
+            self.HalfRate = self.entry_toolrate.get()
+
+            self.Date = date.today()
+
+            db = sqlite3.connect("spower.db")
+            c = db.cursor()
+            c.execute("CREATE TABLE IF NOT EXISTS toolsinfo(Toolname NOT NULL,"
+                      "Disc TEXT,Condition TEXT,fulldayp INTEGER,"
+                      "halfdayp INTEGER,date DATE)")
+            db.commit()
+            c.execute("INSERT INTO toolsinfo VALUES (?,?,?,?,?,?)", (self.nameTool,self.ToolDescription,self.Toolcondition, self.HalfRate, self.FullRate,
+                                                                     self.Date))
+            db.commit()
+
+            tm.showinfo("Successfully Uploaded Tool!", "Now your tool can be hired other Registered User . !! Keep Exploring shared power")
+
+class uploadTools2(Frame):
+
+    def __init__(self, master):
+        self.master = master
+        self.frame = tk.Frame(master)
+
+
+
+        #self.label = Label(root, text="Registration form",width=20,fg='#1f3a93',bg = "#81cfe0 ",font=("Times", 30),borderwidth=3, relief="sunken").place(x=55,y=53)
+
+        self.button_minimize = Button(master, text="_", width=1, font=("bold", 17),relief="groove",activebackground="blue",command=self.minimizeProgram)
+        self.button_minimize.place(x=491, y=2)
+
+        self.button_back = Button(master, text="X", width=2, font=("bold", 17) , relief="groove" , activebackground="red",command=self.back)
+        self.button_back.place(x=515, y=3)
+
+        self.label_name = Label(master, text="Tool Name",width=20,font=("arial", 17))
+        self.label_name.place(x=30,y=165)
+
+        self.entry_toolname = Entry(master,bd =5,font=("arial", 13))
+        self.entry_toolname.place(x=280,y=165 ,width=200, height=38)
+
+        self.label_tooldes = Label(master, text="Description",width=20,font=("arial", 17))
+        self.label_tooldes.place(x=30,y=235)
+
+        self.entry_tooldes = Entry(master,bd =5, font=("arial", 13))
+        self.entry_tooldes.place(x=280,y=235,width=200, height=38)
+
+        self.label_toolcondition = Label(master, text="Condition", width=20, font=("arial", 17))
+        self.label_toolcondition.place(x=23, y=305)
+
+        self.entry_toolcondition = Entry(master, bd=5, font=("arial", 13))
+        self.entry_toolcondition.place(x=280, y=305, width=200, height=38)
+
+        self.label_rate = Label(master, text="Tool Rate",width=20,font=("arial", 17))
+        self.label_rate.place(x=30,y=375)
+        self.entry_toolrate = Entry(master, bd=5, font=("arial", 13))
+        self.entry_toolrate.place(x=280, y=375, width=90, height=38)
+
+        self.label_fullrate = Label(master, text="Full Day",width=20,font=("arial", 10))
+        self.label_fullrate.place(x=243,y=418)
+
+        self.entry_toolrate2 = Entry(master, bd=5, font=("arial", 13))
+        self.entry_toolrate2.place(x=390, y=375, width=90, height=38)
+
+        self.label_halfrate = Label(master, text="Half Day",width=20,font=("arial", 10))
+        self.label_halfrate.place(x=353,y=418)
+
+        Button(master, text='Upload Tools',font=("arial", 13,"bold"),width=15,bg='#e37b17',fg='white', command=self.upload_info).place(x=298,y=464)
+
+        Button(master, text='Upload Image', font=("arial", 13, "bold"), bg="green", fg='white',
+               command=self.upload_image1).place(x=58, y=464)
+
+
+
+        #self.img2 = PhotoImage(file="Images\yup1.png")
+
+        #self.lab2 = Label(master, image=self.img2)
+        #self.lab2.place(x=20, y=23)
+
+        self.upload12 = PhotoImage(file="Images\pload12.png")
+
+        self.ph = Label(master, image=self.upload12)
+        self.ph.place(x=160,y=35)
+
+        master.resizable(False, False)
+        master.overrideredirect(True)
+
+
+
+    def upload_image(self):
+        print("Lets begin to upload")
+
+
+    def upload_image1(self):
+                tm.showwarning("Before Uploading TooolImage!",
+                       "You should upload details of tool first then you need to upload Tool Image.\n If you have uploaded ToolDetails then Click OK  to continue")
+
+                # I need make windows itself destroy after clicking on this button and make other window appear in same position
+                # self.master = master
+
+                #print('Button is pressed!')
+                # self.RegistrationFrame.destroy()
+                self.newWindow = tk.Toplevel(self.master)
+                self.app = UploadImage(self.newWindow)
+                self.newWindow.title("Upload Tools Form")
+                # def select_image(self):
+                # file_path = filedialog.askopenfilename()
+                # return Image.open(file_path)
+
+    def back(self):
+
+                # I need make windows itself destroy after clicking on this button and make other window appear in same position
+                #self.master = master
+                self.master.withdraw()
+
+                #print ('Button is pressed!')
+                #self.RegistrationFrame.destroy()
+                self.newWindow = tk.Toplevel(self.master)
+                self.app = UserPanelFrame2(self.newWindow)
                 self.newWindow.geometry('720x720+350+15')
                 self.newWindow.title("Shared Power Login Form")
 
@@ -1302,9 +1769,174 @@ class SearchTools(Frame):
         self.Searched_Tool = self.entry_ToolName.get()
         return self.Searched_To0ol
 
-    # def showcred(event):
-    #     data = event.widget.item(event.widget.selection())
-    #     pass
+"""SEARCHTOOLS2"""
+
+
+class SearchTools(Frame):
+
+    def __init__(self, master):
+        global entry_ToolName
+        global Searched_Tool
+
+        self.master = master
+        self.frame = tk.Frame(master)
+
+        # self.label = Label(root, text="Registration form",width=20,fg='#1f3a93',bg = "#81cfe0 ",font=("Times", 30),borderwidth=3, relief="sunken").place(x=55,y=53)
+
+        self.button_minimize = Button(master, text="_", width=1, font=("bold", 17), relief="groove",
+                                      activebackground="blue", command=self.minimizeProgram)
+        self.button_minimize.place(x=1135, y=2)
+
+        self.button_back = Button(master, text="X", width=2, font=("bold", 17), relief="groove", activebackground="red",
+                                  command=self.back)
+        self.button_back.place(x=1165, y=3)
+
+        self.label_ToolName = Label(master, text="Tool Name", font=("arial", 22))
+        self.label_ToolName.place(x=125, y=140)
+
+        Searched_Tool = StringVar()
+
+        self.entry_ToolName = Entry(master, bd=5, font=("arial", 14), textvariable=Searched_Tool)
+        self.entry_ToolName.place(x=296, y=140, width=600, height=40)
+        self.searched_Tool = self.entry_ToolName.get()
+
+        self.imgi = PhotoImage(file="Images\Vis3.png")
+        self.button_vis = Button(master, image=self.imgi, font=("bold", 17),
+                                 activebackground="red", command=self.search_results)
+        self.button_vis.place(x=900, y=140)
+
+        # Button(master, text='Hire Tools', font=("arial", 13, "bold"), bg='#e37b17', fg='white',
+        #        command=self.hire1).place(x=530,
+        #                                  y=320)
+
+        # self.img2 = PhotoImage(file="Images\yup1.png")
+
+        # self.lab2 = Label(master, image=self.img2)
+        # self.lab2.place(x=20, y=10)
+
+        # self.img1 = PhotoImage(file="Images\search3.png")
+
+        # self.lab1 = Label(master, image=self.img1)
+        # self.lab1.place(x=200,y=5)
+        #
+        self.tview = ttk.Treeview(master, columns=(
+            'ToolName', 'Description', "Condition", "Fullday Price", "Halfday price"))
+
+        ## self.treeview.insert('', 'end', text="Item_" + str(self.i),values=(data[0],data[1],data[2],data[3],data[4]))
+
+        ## self.tview.insert('','end',values=(data[0],data[1],data[2],data[3],data[4]))
+
+        self.tview = ttk.Treeview(self.master,
+                                  columns=('ToolName', 'Description', "Condition", "Fullday Rate", "Halfday Rate"))
+
+        self.tview.heading('#1', text='Toolname')
+        self.tview.column('#1', stretch=NO)
+        self.tview.heading('#2', text='Description')
+        self.tview.column('#2', stretch=NO)
+        self.tview.heading('#3', text='Condition')
+        self.tview.column('#3', stretch=NO)
+        self.tview.heading('#4', text='Fullday Rate')
+        self.tview.column('#4', stretch=NO)
+        self.tview.heading('#5', text='Halfday Rate')
+        self.tview.column('#5', stretch=NO)
+        self.tview['show'] = 'headings'
+        self.tview.bind("<ButtonRelease-1>", )
+        self.tview.grid(row=0, columnspan=2, sticky='nsew')
+        self.tview.pack(side=BOTTOM)
+
+        self.search_results()
+
+        master.resizable(False, False)
+        master.overrideredirect(True)
+
+    def minimizeProgram(self):
+        # root.wm_state('iconic')
+        self.master.withdraw()
+        # root.state("withdrawn")
+
+    def hire1(self):
+        # I need make windows itself destroy after clicking on this button and make other window appear in same position
+        # self.master = master
+        self.master.withdraw()
+
+        # print('Button is pressed!')
+        # self.RegistrationFrame.destroy()
+        self.newWindow = tk.Toplevel(self.master)
+        self.app = hireTools(self.newWindow)
+        self.newWindow.geometry('550x550+450+140')
+        self.newWindow.title("Upload Tools Form")
+        # def select_image(self):
+        # file_path = filedialog.askopenfilename()
+        # return Image.open(file_path)
+
+    def back(self):
+        # I need make windows itself destroy after clicking on this button and make other window appear in same position
+        # self.master = master
+        self.master.withdraw()
+
+        # print ('Button is pressed!')
+        # self.RegistrationFrame.destroy()
+        self.newWindow = tk.Toplevel(self.master)
+        self.app = UserPanelFrame2(self.newWindow)
+        self.newWindow.geometry('720x720+350+22')
+        self.newWindow.title("Shared Power Login Form")
+
+    def search_results(self):
+        global Searched_Tool, tview
+
+        self.Searched_Tool = self.entry_ToolName.get()
+        db = sqlite3.connect("spower.db")
+        c = db.cursor()
+        c.execute("Select* from toolsinfo WHERE Toolname=?", [self.Searched_Tool])
+        datas = c.fetchall()
+
+        for uall in datas:
+            self.tview.insert('', END, values=uall)
+            db.commit()
+        db.close()
+
+        #      Toolname=data[0]
+        #      disc=data[1]
+        #      cond=data[2]
+        #      fulldayp=data[3]
+        #      halfdayp=data[4]
+        #
+        # print("sucessfully")
+        #
+        # if self.Searched_Tool=="":
+        #     tm.showerror("Invalid ToolName", "No Such Tool Is Uploaded By Any Registered User In Our Database")
+
+    #       # scrollbar = Scrollbar(self.master)
+    #       # # scrollbar.grid(row=12, column=9, sticky='ns')
+    #       # scrollbar.place(x=120,y=250)
+    #       # lb = Listbox(self.master, width=150, height=20, yscrollcommand=scrollbar.set)
+    #       # # lb.grid(row=24, column=8, padx=8)
+    #       # lb.place(x=120,y=250)
+    #       # scrollbar.config(command=lb.yview)
+    #       # lb.insert(END, uall[0], uall[1], uall[2], uall[3], uall[4])
+    #
+    #
+    #
+    #
+    #
+    #
+    #
+    #  #if self.Searched_Tool and self.Searched_Tool != "            " in self.searchTool:
+    #
+    #
+    #
+    #
+    # #self.app = UserPanelFrame(self.newWindow)
+    # #self.newWindow.geometry('220x220+350+22')
+    # #self.newWindow.title("Shared Power Login Form")
+    #
+    # else:
+
+    # pass
+
+    def searchYes(self):
+        self.Searched_Tool = self.entry_ToolName.get()
+        return self.Searched_To0ol
 
 
 '''
@@ -1880,7 +2512,7 @@ class InsuranceCompany(Frame):
         # self.RegistrationFrame.destroy()
         self.newWindow = tk.Toplevel(self.master)
         self.app = view_userinfo(self.newWindow)
-        self.newWindow.geometry('550x550+450+140')
+        self.newWindow.geometry('648x350+455+140')
         self.newWindow.title("view User Information")
 
 
@@ -1891,7 +2523,7 @@ class InsuranceCompany(Frame):
         # self.RegistrationFrame.destroy()
         self.newWindow = tk.Toplevel(self.master)
         self.app = view_all_tools(self.newWindow)
-        self.newWindow.geometry('550x550+450+140')
+        self.newWindow.geometry('600x450+450+100')
         self.newWindow.title("View Upload Tools")
 
 
@@ -1951,15 +2583,15 @@ class view_userinfo():
         # lb.grid(row=12, column=8, padx=8)
         # scrollbar.config(command=lb.yview)
 
-        self.button_minimize = Button(master, text="_", width=1, font=("bold", 17), relief="groove",
-                                      activebackground="blue",
-                                      command=self.minimizeProgram)
-        self.button_minimize.place(x=491, y=2)
+        # self.button_minimize = Button(master, text="_", width=1, font=("bold", 17), relief="groove",
+        #                               activebackground="blue",
+        #                               command=self.minimizeProgram)
+        # self.button_minimize.place(x=491, y=2)
 
-        self.button_destroy = Button(master, text="X", width=2, font=("bold", 17), relief="groove",
+        self.button_destroy = Button(master, text="Go Back", width=12, font=("bold", 17), relief="groove",
                                      activebackground="red",
                                      command=self.back)
-        self.button_destroy.place(x=515, y=3)
+        self.button_destroy.place(x=280, y=240)
 
 
 
@@ -1974,7 +2606,7 @@ class view_userinfo():
         self.tview.column('#3', stretch=NO,width=100)
         self.tview.heading('#4', text='Country')
         self.tview.column('#4', stretch=NO,width=100)
-        self.tview.heading('#5', text='Phonenp')
+        self.tview.heading('#5', text='Phone no')
         self.tview.column('#5', stretch=NO,width=100)
         self.tview.heading('#6', text='Registered Date')
         self.tview.column('#6', stretch=NO,width=100)
@@ -1984,7 +2616,8 @@ class view_userinfo():
         self.tview.grid(row=0, columnspan=2, sticky='nsew')
         self.tview.pack(side=TOP)
 
-
+        master.resizable(False, False)
+        master.overrideredirect(True)
 
 
         db = sqlite3.connect("spower.db")
@@ -2004,8 +2637,8 @@ class view_userinfo():
             # self.country = uall[4]
             # self.pn = uall[5]
 
-    def minimizeProgram(self):
-        self.master.withdraw()
+    # def minimizeProgram(self):
+    #     self.master.withdraw()
 
     def back(self):
 
@@ -2014,7 +2647,7 @@ class view_userinfo():
 
         self.newWindow = tk.Toplevel(self.master)
         self.app = InsuranceCompany(self.newWindow)
-        self.newWindow.geometry('720x720+350+22')
+        self.newWindow.geometry('550x550+450+140')
         self.newWindow.title("Insurance Company ")
 
 
@@ -2074,10 +2707,14 @@ class view_all_tools():
         self.master = master
         self.frame = tk.Frame(master)
 
+        self.button_destroy = Button(master, text="Go Back", width=12, font=("bold", 17), relief="groove",
+                                     activebackground="Green",
+                                     command=self.back)
+        self.button_destroy.place(x=250, y=240)
 
         scrollbar=Scrollbar(master)
-        scrollbar.grid(row=11,column=9,sticky='ns')
-        lb=Listbox(master,width=110,height=10,yscrollcommand=scrollbar.set)
+        scrollbar.grid(row=8,column=9,sticky='ns')
+        lb=Listbox(master,width=90,height=10,yscrollcommand=scrollbar.set)
         lb.grid(row=12,column=8,padx=8)
         scrollbar.config(command=lb.yview)
 
@@ -2087,6 +2724,8 @@ class view_all_tools():
         # lb2.grid(row=26, column=8, padx=8)
         # scrollbar.config(command=lb2.yview)
 
+        master.resizable(False, False)
+        master.overrideredirect(True)
 
 
 
@@ -2102,7 +2741,15 @@ class view_all_tools():
         for tname in toolname:
             lb.insert(END,tname)
 
+    def back(self):
 
+        self.master.withdraw()
+
+
+        self.newWindow = tk.Toplevel(self.master)
+        self.app = InsuranceCompany(self.newWindow)
+        self.newWindow.geometry('550x550+450+140')
+        self.newWindow.title("Insurance Company ")
 
 
 root = Tk()
