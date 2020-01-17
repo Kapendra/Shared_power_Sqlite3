@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fce986f5-26a6-4701-aad4-349459d9421e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shared_power_Sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Shared_power_Sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Text File Handling/YUploadTools.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Text File Handling/YUploadTools.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared power new.py" beforeDir="false" afterPath="$PROJECT_DIR$/shared power new.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spower.db" beforeDir="false" afterPath="$PROJECT_DIR$/spower.db" afterDir="false" />
     </list>
@@ -17,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/shared power new.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="2612" lean-forward="true" selection-start-line="2612" selection-end-line="2612" />
+            <state relative-caret-position="246">
+              <caret line="2359" column="8" selection-start-line="2359" selection-start-column="8" selection-end-line="2359" selection-end-column="8" />
               <folding>
                 <element signature="e#22#36#0" expanded="true" />
               </folding>
@@ -37,36 +39,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>file_path</find>
-      <find>search tools</find>
-      <find>SearchTools</find>
-      <find>view user info</find>
-      <find>search_re</find>
-      <find>view_info</find>
-      <find>search_result</find>
-      <find>search_results</find>
-      <find>InsuranceCompany</find>
-      <find>confirm exit</find>
-      <find>loginFrame</find>
-      <find>invoice</find>
-      <find>login</find>
-      <find>loginframe</find>
-      <find>UserPanelFrame2(</find>
-      <find>upload Tools</find>
-      <find>uploadtools</find>
-      <find>return tools</find>
-      <find>userpanel</find>
-      <find>payment</find>
-      <find>userpanelframe</find>
-      <find>paytools</find>
-      <find>back</find>
-      <find>userpanelframe2</find>
-      <find>searchtools</find>
-      <find>profile</find>
-      <find>login_info</find>
-      <find>view_userinfo</find>
-      <find>view_all_tools</find>
       <find>view_user</find>
+      <find>login</find>
+      <find>UserPanelFrame2</find>
+      <find>splash</find>
+      <find>search</find>
+      <find>Print_invoice</find>
+      <find>minimizeprogram</find>
+      <find>back</find>
+      <find>Login_info</find>
+      <find>RegistrationFrame</find>
+      <find>insurance</find>
+      <find>insurancecompany</find>
+      <find>userpanelframe2</find>
+      <find>endprogram</find>
+      <find>registrationframe</find>
+      <find>splashscree</find>
+      <find>splashscreenframe</find>
+      <find>background</find>
+      <find>userpanel</find>
+      <find>userpanelframe</find>
+      <find>uploadtools</find>
+      <find>searchtools</find>
+      <find>search_res</find>
+      <find>print_invoice</find>
+      <find>loginframe</find>
+      <find>hiretools</find>
+      <find>hire</find>
+      <find>login_info</find>
+      <find>profile</find>
+      <find>invoice</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -86,8 +88,8 @@
   <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
-    <option name="width" value="954" />
-    <option name="height" value="1039" />
+    <option name="width" value="955" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -95,6 +97,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -106,7 +109,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -241,12 +243,12 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.04095112" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.01981506" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.09618105" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.18104668" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.2135785" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -318,8 +320,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shared power new.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="2612" lean-forward="true" selection-start-line="2612" selection-end-line="2612" />
+        <state relative-caret-position="246">
+          <caret line="2359" column="8" selection-start-line="2359" selection-start-column="8" selection-end-line="2359" selection-end-column="8" />
           <folding>
             <element signature="e#22#36#0" expanded="true" />
           </folding>
