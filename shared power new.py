@@ -91,9 +91,7 @@ class LoginFrame():
         self.master = master
         self.frame = tk.Frame(master)
 
-        # self.button_minimize = Button(master, text="_", width=1, font=("bold", 17), relief="groove", activebackground="blue",
-        #                          command=self.minimizeProgram)
-        # self.button_minimize.place(x=491, y=2)
+
 
         self.button_destroy = Button(master, text="X", width=2, font=("bold", 17), relief="groove", activebackground="red",
                                 command=self.minimizeProgram)
@@ -113,7 +111,7 @@ class LoginFrame():
         self.login_password.place(x=240, y=180, width=180)
 
 
-        # Checkbutton(master, text="Keep me logged in", variable=var2, font=('Times', 13,'underline'),cursor="hand1").place(x=190, y=225 , width=200)
+
 
         Button(master, text='Log In', font=("bold", 11), width=20, bg='deep sky blue', fg='white', command=self.login_info).place(
             x=215, y=280)
@@ -122,10 +120,10 @@ class LoginFrame():
                command=self.register).place(
             x=215, y=320)
 
-        #self.img2 = PhotoImage(file="Images\yup1.png")
+        self.img2 = PhotoImage(file="Images\yup1.png")
 
-        #self.lab2 = Label(master, image=self.img2)
-        #self.lab2.place(x=20, y=23)
+        self.lab2 = Label(master, image=self.img2)
+        self.lab2.place(x=20, y=23)
 
         self.img1 = PhotoImage(file="Images\login2.png")
 
@@ -161,18 +159,13 @@ class LoginFrame():
         c=db.cursor()
         c.execute("Select * FROM userinfo WHERE Fullname = ? and password= ? ",(self.Username_Login,self.Password_Login))
         result=c.fetchone()
-        print(result)
+
         db.commit()
 
 
 
         insurancname="Insurance"
         Inpasword="Insurance"
-        # c.execute(
-        #      "CREATE TABLE IF NOT EXISTS insuranceinfo(Fullname TEXT ,password VARCHAR)")
-        # c.execute("select* FROM insuranceinfo where Fullname=? and password=?", (self.Username_Login, self.passw1))
-        # insuranc = c.fetchone()
-        # db.commit()
 
 
 
@@ -230,11 +223,6 @@ class LoginFrame():
         self.newWindow.geometry('550x570+450+110')
         self.newWindow.title("Registration Frame")
 
-    # def endProgram():
-    #     # top.quit()
-    #     tm.showinfo("Confirm Exit",
-    #                    "Are You sure want to exit Shared Power? " )
-    #     root.destroy()
 
 
 
@@ -305,7 +293,8 @@ class UserPanelFrame(Frame):
          #                        activebackground="red", command=self.cal1)
         #self.button_cal.place(x=10, y=680)
 
-        self.show_profile = Button(master, text="View Profile", font=("bold", 9), relief="groove",
+
+        self.show_profile = Button(master, text="View Profile", font=("bold", 12), relief="groove",
                                  activebackground="Grey", command=self.profile)
         self.show_profile.place(x=564, y=180)
 
@@ -336,7 +325,7 @@ class UserPanelFrame(Frame):
 
         self.upload1 = PhotoImage(file="Images\yup1.png")
         self.up = PhotoImage(file="Images\Vis3.png")
-        self.up = PhotoImage(file="Images\pload1.png")
+        self.up = PhotoImage(file="Images\delivery.png")
         self.upload_tools = Button(master, text="Hire Dispatch rider", width=210, height=160, image=self.up,
                                    font=('arial', 7, "bold"), cursor="hand1",command=self.upload,
                                    activebackground="green",
@@ -346,7 +335,7 @@ class UserPanelFrame(Frame):
         self.upload1 = Label(master, text="Hire Dispatch rider", font=("arial", 16,"bold"))
         self.upload1.place(x=475, y=395)
 
-        self.hire = PhotoImage(file="Images\hire1.png")
+        self.hire = PhotoImage(file="Images\Returnlogo1.png")
         self.hire_tools = Button(master, text="Return Tools",  width=210, height=160, image=self.hire,font=('arial', 16, "bold"), cursor="hand1",command=self.return1,activebackground="cyan")
         self.hire_tools.place(x=210, y=445)
         #
@@ -435,7 +424,7 @@ class UserPanelFrame(Frame):
                 #self.RegistrationFrame.destroy()
                 self.newWindow = tk.Toplevel(self.master)
                 self.app = profile(self.newWindow)
-                self.newWindow.geometry('550x550+450+160')
+                self.newWindow.geometry('550x450+450+160')
                 self.newWindow.title("Profile")
 
 
@@ -448,7 +437,7 @@ class UserPanelFrame(Frame):
             self.master.withdraw()
             self.newWindow = tk.Toplevel(self.master)
             self.app = invoice(self.newWindow)
-            self.newWindow.geometry('550x550+450+140')
+            self.newWindow.geometry('550x580+450+140')
             self.newWindow.title("Invoice")
 
 
@@ -585,7 +574,7 @@ class UserPanelFrame2(Frame):
 
 
 
-        self.show_profile = Button(master, text="View Profile", font=("bold", 9), relief="groove",
+        self.show_profile = Button(master, text="View Profile", font=("bold", 12), relief="groove",
                                    activebackground="Grey", command=self.profile)
         self.show_profile.place(x=564, y=180)
 
@@ -671,7 +660,7 @@ class UserPanelFrame2(Frame):
         # self.RegistrationFrame.destroy()
         self.newWindow = tk.Toplevel(self.master)
         self.app = profile2(self.newWindow)
-        self.newWindow.geometry('550x700+450+140')
+        self.newWindow.geometry('550x450+450+140')
         self.newWindow.title("Profile")
 
     def minimizeProgram(self):
@@ -763,7 +752,7 @@ class profile2(Frame):
 
         self.button_destroy = Button(master, text="X", width=2, font=("bold", 17), relief="groove",
                                      activebackground="red", command=self.back)
-        self.button_destroy.place(x=520, y=2)
+        self.button_destroy.place(x=510, y=2)
 
         master.resizable(False, False)
         master.overrideredirect(True)
@@ -859,7 +848,7 @@ class profile(Frame):
 
         self.button_destroy = Button(master, text="X", width=2, font=("bold", 17), relief="groove",
                                      activebackground="red", command=self.back)
-        self.button_destroy.place(x=520, y=2)
+        self.button_destroy.place(x=513, y=2)
 
         master.resizable(False, False)
         master.overrideredirect(True)
@@ -1304,21 +1293,9 @@ class uploadTools(Frame):
         self.entry_phoneno = Entry(master, bd=5, font=("arial", 13))
         self.entry_phoneno.place(x=280, y=305, width=200, height=38)
 
-        # self.label_rate = Label(master, text="Tool Rate",width=20,font=("arial", 17))
-        # self.label_rate.place(x=30,y=375)
-        # self.entry_toolrate = Entry(master, bd=5, font=("arial", 13))
-        # self.entry_toolrate.place(x=280, y=375, width=90, height=38)
-        #
-        # self.label_fullrate = Label(master, text="Full Day",width=20,font=("arial", 10))
-        # self.label_fullrate.place(x=243,y=418)
-        #
-        # self.entry_toolrate2 = Entry(master, bd=5, font=("arial", 13))
-        # self.entry_toolrate2.place(x=390, y=375, width=90, height=38)
-        #
-        # self.label_halfrate = Label(master, text="Half Day",width=20,font=("arial", 10))
-        # self.label_halfrate.place(x=353,y=418)
 
-        Button(master, text='Submit Details',font=("arial", 13,"bold"),width=15,bg='#e37b17',fg='white', command=self.upload_info).place(x=298,y=464)
+
+        Button(master, text='Submit Details',font=("arial", 13,"bold"),width=15,bg='#e37b17',fg='white', command=self.upload_info).place(x=265,y=464)
 
 
 
@@ -1401,9 +1378,10 @@ class uploadTools(Frame):
             c.execute("INSERT INTO delivery VALUES (?,?,?)", (self.Fullname,self.address,self.phoneno))
             db.commit()
 
-            tm.showinfo("Successfully submitted!", "You have hired Dispatch Rider Sucessfully !!"
+            tm.showinfo("Successfully submitted!!", "You have hired Dispatch Rider Sucessfully !!"
                                                    " Now You Have to Pay Delivery service charge."
                                                    " After sucessfully delivered at your destination. ")
+
 
 class uploadTools2(Frame):
 
@@ -1666,7 +1644,7 @@ class SearchTools(Frame):
 
 
 
-        self.search_results()
+        # self.search_results()
 
 
         master.resizable(False, False)
@@ -1711,25 +1689,26 @@ class SearchTools(Frame):
     def search_results(self):
 
         global Searched_Tool,tview
-
         self.Searched_Tool = self.entry_ToolName.get()
 
-        db=sqlite3.connect("spower.db")
-        c=db.cursor()
-        c.execute("Select* from toolsinfo WHERE Toolname=?",[self.Searched_Tool])
-        datas=c.fetchall()
-        db.commit()
+        if self.Searched_Tool=='':
 
-        for uall in datas:
-            self.tview.insert('',END,values=uall)
-
+            tm.showerror("Empty Field","Please Type Tool Name ")
+        else :
+            db = sqlite3.connect("spower.db")
+            c = db.cursor()
+            c.execute("Select* from toolsinfo WHERE Toolname=?", [self.Searched_Tool])
+            datas = c.fetchall()
             db.commit()
-        db.close()
+            if not(datas):
+                tm.showerror("Not in Database", "Sorry Tool is not avialable in our system. ")
 
+            for uall in datas:
+                self.Searched_Tool = self.entry_ToolName.get()
+                self.tview.insert('', END, values=uall)
 
-
-
-
+                db.commit()
+                db.close()
 
 
 
@@ -1744,7 +1723,7 @@ class SearchTools(Frame):
 
     def searchYes(self):
         self.Searched_Tool = self.entry_ToolName.get()
-        return self.Searched_To0ol
+        return self.Searched_Tool
 
 """SEARCHTOOLS2"""
 
@@ -1821,7 +1800,7 @@ class SearchTools2(Frame):
         self.tview.grid(row=0, columnspan=2, sticky='nsew')
         self.tview.pack(side=BOTTOM)
 
-        self.search_results()
+        # self.search_results()
 
         master.resizable(False, False)
         master.overrideredirect(True)
@@ -1862,54 +1841,26 @@ class SearchTools2(Frame):
         global Searched_Tool, tview
 
         self.Searched_Tool = self.entry_ToolName.get()
-        db = sqlite3.connect("spower.db")
-        c = db.cursor()
-        c.execute("Select* from toolsinfo WHERE Toolname=?", [self.Searched_Tool])
-        datas = c.fetchall()
+        if self.Searched_Tool == '':
 
-        for uall in datas:
-            self.tview.insert('', END, values=uall)
+            tm.showerror("Empty Field", "Please Type Tool Name ")
+        else:
+            db = sqlite3.connect("spower.db")
+            c = db.cursor()
+            c.execute("Select* from toolsinfo WHERE Toolname=?", [self.Searched_Tool])
+            datas = c.fetchall()
             db.commit()
-        db.close()
+            if not (datas):
+                tm.showerror("Not in Database", "Sorry Tool is not avialable in our system. ")
 
-        #      Toolname=data[0]
-        #      disc=data[1]
-        #      cond=data[2]
-        #      fulldayp=data[3]
-        #      halfdayp=data[4]
-        #
-        # print("sucessfully")
-        #
-        # if self.Searched_Tool=="":
-        #     tm.showerror("Invalid ToolName", "No Such Tool Is Uploaded By Any Registered User In Our Database")
+            for uall in datas:
+                self.Searched_Tool = self.entry_ToolName.get()
+                self.tview.insert('', END, values=uall)
 
-    #       # scrollbar = Scrollbar(self.master)
-    #       # # scrollbar.grid(row=12, column=9, sticky='ns')
-    #       # scrollbar.place(x=120,y=250)
-    #       # lb = Listbox(self.master, width=150, height=20, yscrollcommand=scrollbar.set)
-    #       # # lb.grid(row=24, column=8, padx=8)
-    #       # lb.place(x=120,y=250)
-    #       # scrollbar.config(command=lb.yview)
-    #       # lb.insert(END, uall[0], uall[1], uall[2], uall[3], uall[4])
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #  #if self.Searched_Tool and self.Searched_Tool != "            " in self.searchTool:
-    #
-    #
-    #
-    #
-    # #self.app = UserPanelFrame(self.newWindow)
-    # #self.newWindow.geometry('220x220+350+22')
-    # #self.newWindow.title("Shared Power Login Form")
-    #
-    # else:
+                db.commit()
+                db.close()
 
-    # pass
+
 
     def searchYes(self):
         self.Searched_Tool = self.entry_ToolName.get()
@@ -1928,7 +1879,9 @@ class hireTools(SearchTools):
 
     def __init__(self, master):
 
+
         global entry_toolname
+
         # self.showyes = ok.searched_Tool
         # self.var2 = master.var2
 
@@ -2038,7 +1991,7 @@ class hireTools(SearchTools):
 
         self.HalfRate = self.tool_rate.get()
 
-        if len(self.nameTool) == 0 and len(self.HireDays) == 0 :
+        if len(self.nameTool) == 0:
             tm.showerror("Upload Tool Error",
                          "UploadTool is unsucessful. May be one or more field is empty.")
 
@@ -2056,9 +2009,9 @@ class hireTools(SearchTools):
 
             self.HalfRate = float(self.tool_rate.get())
 
-            self.InsurancePlus = self.HalfRate + 5.00
+            self.InsurancePlus =  float(5.00)
 
-            self.InsurancePlus2 = self.FullRate + 5.00
+            self.InsurancePlus2 =  float(5.00)
 
             self.Date = date.today()
 
@@ -2069,6 +2022,9 @@ class hireTools(SearchTools):
                                                                         self.HalfRate, self.FullRate,
                                                                         self.InsurancePlus2, self.Date))
             db.commit()
+
+
+
 
 
 
@@ -2110,7 +2066,7 @@ in printing the invoice .
 class ReturnTools(Frame):
 
     def __init__(self, master):
-        data=None
+
         self.master = master
         self.frame = tk.Frame(master)
 
@@ -2129,11 +2085,14 @@ class ReturnTools(Frame):
         self.listOfTools = Listbox(master, selectmode=EXTENDED, exportselection=0,font=("arial", 17, "bold")
                                    ,width=30, height=10,bg='#808e9b',fg='white',highlightcolor="green")
         self.listOfTools.place(x=95, y=160)
+        self.data = []
         db=sqlite3.connect("spower.db")
         c=db.cursor()
-        c.execute('select Toolname from hiretools')
+        c.execute('select Toolname from hiretools ')
         self.data=c.fetchall()
+        print(self.data)
         db.commit()
+
 
 
 
@@ -2165,11 +2124,17 @@ class ReturnTools(Frame):
         master.overrideredirect(True)
 
     def delete_selected_item(self):
-
         tm.showwarning("Confirm ReturnTool",
                        "Are You sure want to return this tool ? If you return this tool , this tool will be deleted from "
                        "your hired tool database. ")
         self.indexes = self.listOfTools.curselection()
+        print(self.indexes)
+        db=sqlite3.connect("spower.db")
+        c=db.cursor()
+        deldata = self.listOfTools.get(self.indexes)
+        c.execute("DELETE FROM hiretools WHERE Toolname=?",deldata)
+        db.commit()
+        db.close()
         for index in self.indexes:
             self.listOfTools.delete(index)
 
@@ -2277,7 +2242,7 @@ class payTools(Frame):
 
             self.newWindow = tk.Toplevel(self.master)
             self.app = invoice(self.newWindow)
-            self.newWindow.geometry('550x550+450+140')
+            self.newWindow.geometry('550x565+450+140')
             self.newWindow.title("Invoice")
 
             # os.startfile("Text File Handling\Invoice.txt")
@@ -2341,6 +2306,10 @@ class invoice(Frame):
         self.master = master
         self.frame = tk.Frame(master)
 
+
+
+
+
         tool_info = []
         db = sqlite3.connect("spower.db")
         c = db.cursor()
@@ -2357,7 +2326,10 @@ class invoice(Frame):
             fulldayp = info[4]
             halfdayp= info[5]
             insu=info[6]
-        
+            a=float(fulldayp)+float(insu)
+            b=float(a/2)
+
+
             # dat=date.today(7)
         # self.invoice = PhotoImage(file="Images\invoice.png")
         # self.invoiceimg = Label(master, image=self.invoice)
@@ -2366,13 +2338,13 @@ class invoice(Frame):
 
 
 
-        self.button_minimize = Button(master, text="_", width=1, font=("bold", 17), relief="groove",
-                                      activebackground="blue", command=minimizeProgram)
-        self.button_minimize.place(x=492, y=2)
+        # self.button_minimize = Button(master, text="_", width=1, font=("bold", 17), relief="groove",
+        #                               activebackground="blue", command=minimizeProgram)
+        # self.button_minimize.place(x=492, y=2)
 
         self.button_destroy = Button(master, text="X", width=2, font=("bold", 17), relief="groove",
                                      activebackground="red", command=self.back)
-        self.button_destroy.place(x=520, y=2)
+        self.button_destroy.place(x=518, y=2)
 
         self.label_in = Label(master, text="Invoice No:", width=20, font=("bold", 13))
         self.label_in.place(x=70, y=130)
@@ -2392,19 +2364,19 @@ class invoice(Frame):
         self.label_2get = Label(master, text=Hiredate, width=20, font=("arial", 10))
         self.label_2get.place(x=210, y=190)
 
-        self.label_3 = Label(master, text="Hire Days", width=20, font=("bold", 13))
-        self.label_3.place(x=70, y=230)
+        self.label_3 = Label(master, text="Hire Days:", width=20, font=("bold", 13))
+        self.label_3.place(x=65, y=230)
 
         self.label_3get = Label(master, text=Hiredays, width=20, font=("arial", 10))
-        self.label_3get.place(x=210, y=230)
+        self.label_3get.place(x=208, y=230)
 
-        self.label_4 = Label(master, text="Fullday Rate", width=20, font=("bold", 13))
-        self.label_4.place(x=70, y=260)
+        self.label_4 = Label(master, text="Fullday Rate:", width=20, font=("bold", 13))
+        self.label_4.place(x=70, y=265)
 
         self.label_4get = Label(master, text=fulldayp, width=20, font=("arial", 10))
         self.label_4get.place(x=210, y=265)
 
-        self.label_q = Label(master, text="Halfday Rate", width=20, font=("bold", 13))
+        self.label_q = Label(master, text="Halfday Rate:", width=20, font=("bold", 13))
         self.label_q.place(x=70, y=320)
 
         self.label_qget = Label(master, text=halfdayp, width=20, font=("arial", 10))
@@ -2419,8 +2391,15 @@ class invoice(Frame):
         self.label_df = Label(master, text="Total Fullday Price :", width=20, font=("bold", 13))
         self.label_df.place(x=70, y=420)
 
+        self.label_ddg = Label(master, text=a, width=10, font=("arial", 10))
+        self.label_ddg.place(x=260, y=425)
+
+
         self.label_dh = Label(master, text="Total Halfday price :", width=20, font=("bold", 13))
         self.label_dh.place(x=70, y=470)
+
+        self.label_ddg = Label(master, text=b, width=10, font=("arial", 10))
+        self.label_ddg.place(x=266, y=469)
 
         self.label_dd = Label(master, text="Invoice generated Date:", width=20, font=("bold", 11))
         self.label_dd.place(x=70, y=520)
@@ -2433,8 +2412,8 @@ class invoice(Frame):
 
 
 
-    def minimizeprogram(self):
-        self.master.withdraw()
+    # def minimizeprogram():
+    #     invoice.master.withdraw()
 
     def back(self):
         self.master.withdraw()
@@ -2615,7 +2594,7 @@ class view_userinfo():
         self.tview.column('#6', stretch=NO,width=100)
 
         self.tview['show'] = 'headings'
-        self.tview.bind("<ButtonRelease-1>", )
+        # self.tview.bind("<ButtonRelease-1>", )
         self.tview.grid(row=0, columnspan=2, sticky='nsew')
         self.tview.pack(side=TOP)
 
@@ -2707,6 +2686,7 @@ class view_userinfo():
 
 class view_all_tools():
     def __init__(self, master):
+
         self.master = master
         self.frame = tk.Frame(master)
 
@@ -2715,20 +2695,29 @@ class view_all_tools():
                                      command=self.back)
         self.button_destroy.place(x=250, y=240)
 
-        scrollbar=Scrollbar(master)
-        scrollbar.grid(row=8,column=9,sticky='ns')
-        lb=Listbox(master,width=90,height=10,yscrollcommand=scrollbar.set)
-        lb.grid(row=12,column=8,padx=8)
-        scrollbar.config(command=lb.yview)
+        self.tview = ttk.Treeview(self.master,
+                                  height = 10,selectmode = "none",columns=('Toolname','2','3'))
 
-        # scrollbar = Scrollbar(master)
-        # scrollbar.grid(row=11, column=9, sticky='ns')
-        # lb2 = Listbox(master, width=110, height=10, yscrollcommand=scrollbar.set)
-        # lb2.grid(row=26, column=8, padx=8)
-        # scrollbar.config(command=lb2.yview)
+        # self.tview = ttk.Treeview(self.master,
+        #                           columns=('Toolname'))
+
+        self.tview.heading('#1', text='Toolname')
+        self.tview.column('#1', stretch=NO,width=100)
+        self.tview['show'] = 'headings'
+        self.tview.bind("<ButtonRelease-1>" )
+        self.tview.grid(row=0, columnspan=2, sticky='nsew')
+        self.tview.pack(side=TOP)
+
+        # scrollbar=Scrollbar(master)
+        # scrollbar.grid(row=8,column=9,sticky='ns')
+        # lb=Listbox(master,width=90,height=10,yscrollcommand=scrollbar.set)
+        # lb.grid(row=12,column=8,padx=8)
+        # scrollbar.config(command=lb.yview)
+
 
         master.resizable(False, False)
         master.overrideredirect(True)
+
 
 
 
@@ -2740,9 +2729,10 @@ class view_all_tools():
         # c.execute('SELECT * FROM userinfo where Fullname= ?',(str(LoginFrame.username)))
         c.execute('select Toolname from toolsinfo ')
         toolname=c.fetchall()
+
         db.commit()
         for tname in toolname:
-            lb.insert(END,tname)
+            self.tview.insert('',END,values=(tname[0]) )
 
     def back(self):
 
