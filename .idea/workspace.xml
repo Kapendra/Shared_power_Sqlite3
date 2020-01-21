@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fce986f5-26a6-4701-aad4-349459d9421e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/Returnlogo.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Returnlogo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/Returnlogo1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Returnlogo1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/s1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/s1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Vis34.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/pload12.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/pload12.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shared_power_Sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Shared_power_Sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared power new.py" beforeDir="false" afterPath="$PROJECT_DIR$/shared power new.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spower.db" beforeDir="false" afterPath="$PROJECT_DIR$/spower.db" afterDir="false" />
@@ -21,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/shared power new.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="474">
-              <caret line="1828" lean-forward="true" selection-start-line="1828" selection-end-line="1828" />
+            <state relative-caret-position="239">
+              <caret line="2771" column="20" lean-forward="true" selection-start-line="2771" selection-start-column="20" selection-end-line="2771" selection-end-column="20" />
               <folding>
                 <element signature="e#22#36#0" expanded="true" />
               </folding>
@@ -41,11 +39,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>insurancecompany</find>
-      <find>endprogram</find>
-      <find>registrationframe</find>
-      <find>splashscree</find>
-      <find>splashscreenframe</find>
       <find>background</find>
       <find>search_res</find>
       <find>print_invoice</find>
@@ -56,7 +49,6 @@
       <find>delivery</find>
       <find>userpanel</find>
       <find>profile</find>
-      <find>userpanelframe2</find>
       <find>upload</find>
       <find>userpanelframe</find>
       <find>login_info</find>
@@ -66,11 +58,17 @@
       <find>invoice</find>
       <find>log</find>
       <find>loginframe</find>
-      <find>uploadtools</find>
       <find>print</find>
       <find>other</find>
       <find>splash</find>
       <find>drop</find>
+      <find>userpanelframe2</find>
+      <find>claim</find>
+      <find>uploadtools</find>
+      <find>claim1</find>
+      <find>create</find>
+      <find>create table</find>
+      <find>seller</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -87,7 +85,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="840" />
     <option name="width" value="955" />
     <option name="height" value="1040" />
@@ -249,7 +247,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.17114569" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.17114569" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.2135785" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -321,8 +319,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shared power new.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="1828" lean-forward="true" selection-start-line="1828" selection-end-line="1828" />
+        <state relative-caret-position="239">
+          <caret line="2771" column="20" lean-forward="true" selection-start-line="2771" selection-start-column="20" selection-end-line="2771" selection-end-column="20" />
           <folding>
             <element signature="e#22#36#0" expanded="true" />
           </folding>

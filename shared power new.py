@@ -321,7 +321,7 @@ class UserPanelFrame(Frame):
         self.upload1 = PhotoImage(file="Images\yup1.png")
         self.up = PhotoImage(file="Images\Vis3.png")
         self.up = PhotoImage(file="Images\delivery.png")
-        self.upload_tools = Button(master, text="Hire Dispatch rider", width=210, height=160, image=self.up,
+        self.upload_tools = Button(master, text="Hire Dispatch Rider", width=210, height=160, image=self.up,
                                    font=('arial', 7, "bold"), cursor="hand1",command=self.upload,
                                    activebackground="green",
                                    activeforeground="red")
@@ -613,17 +613,28 @@ class UserPanelFrame2(Frame):
         # self.hire13 = Label(master, text="Hire Tools ", font=("arial", 16,"bold"))
         # self.hire13.place(x=257, y=623)
 
-        # self.pay = PhotoImage(file="Images\paynow1.png")
-        # self.pay_tools = Button(master, text="Payment & Delivery", width=210, height=160, image=self.pay,
-        #                         font=('arial', 16, "bold"), cursor="hand1", command=self.pay1, activebackground="brown",
-        #                         activeforeground="green")
-        # self.pay_tools.place(x=438, y=445)
-        #
-        # self.pay13 = Label(master, text="Payment & Delivery ", font=("arial", 16, "bold"))
-        # self.pay13.place(x=446, y=623)
+        self.pay = PhotoImage(file="Images\paynow1.png")
+        self.pay_tools = Button(master, text="claim ", width=210, height=160, image=self.pay,
+                                font=('arial', 16, "bold"), cursor="hand1", command=self.claim, activebackground="brown",
+                                activeforeground="green")
+        self.pay_tools.place(x=438, y=445)
+
+        self.pay13 = Label(master, text="claim damage charge ", font=("arial", 16, "bold"))
+        self.pay13.place(x=446, y=623)
 
         # self.image_tk = PhotoImage(self.select_image())
         # self.canvas.create_image(0, 0, image=self.image_tk)
+
+    def claim(self):
+        self.master.withdraw()
+
+        # print ('Button is pressed!')
+        # self.RegistrationFrame.destroy()
+        self.newWindow = tk.Toplevel(self.master)
+        self.app = Claim1(self.newWindow)
+        self.newWindow.geometry('550x550+450+140')
+        self.newWindow.title("Claim Damage Charge")
+
 
     def search(self):
         self.master.withdraw()
@@ -709,7 +720,113 @@ def minimizeProgram():
 #     tm.showinfo("Confirm Exit",
 #                 "Are You sure want to exit Shared Power? ")
 #     root.destroy()
+# claim damage charge classs
+class Claim1(Frame):
+    def __init__(self,master):
+        self.master = master
+        self.frame = tk.Frame(master)
 
+        # self.label = Label(root, text="Registration form",width=20,fg='#1f3a93',bg = "#81cfe0 ",font=("Times", 30),borderwidth=3, relief="sunken").place(x=55,y=53)
+
+        self.button_minimize = Button(master, text="_", width=1, font=("bold", 17), relief="groove",
+                                      activebackground="blue", command=self.minimizeProgram)
+        self.button_minimize.place(x=491, y=2)
+
+        self.button_back = Button(master, text="X", width=2, font=("bold", 17), relief="groove", activebackground="red",
+                                  command=self.back)
+        self.button_back.place(x=515, y=3)
+
+        self.label_name = Label(master, text="Seller Name", width=20, font=("arial", 17))
+        self.label_name.place(x=30, y=165)
+
+        self.entry_sellername = Entry(master, bd=5, font=("arial", 13))
+        self.entry_sellername.place(x=280, y=165, width=200, height=38)
+
+        self.label_tooldes = Label(master, text="Buyer Name", width=20, font=("arial", 17))
+        self.label_tooldes.place(x=30, y=235)
+
+        self.entry_buyername = Entry(master, bd=5, font=("arial", 13))
+        self.entry_buyername.place(x=280, y=235, width=200, height=38)
+
+        self.label_toolname = Label(master, text="Toolname", width=20, font=("arial", 17))
+        self.label_toolname.place(x=23, y=305)
+
+        self.entry_toolname = Entry(master, bd=5, font=("arial", 13))
+        self.entry_toolname.place(x=280, y=305, width=200, height=38)
+
+        self.label_rate = Label(master, text="Charge Amount", width=20, font=("arial", 17))
+        self.label_rate.place(x=30, y=375)
+        self.entry_toolrate = Entry(master, bd=5, font=("arial", 13))
+        self.entry_toolrate.place(x=280, y=375, width=90, height=38)
+        self.upload12 = PhotoImage(file="Images\claim.png")
+
+        self.ph = Label(master, image=self.upload12)
+        self.ph.place(x=160, y=35)
+
+
+        Button(master, text='Submit', font=("arial", 13, "bold"), width=15, bg='#9ae911', fg='white',
+               command=self.claim_info).place(x=298, y=464)
+
+
+        master.resizable(False, False)
+        master.overrideredirect(True)
+
+    def back(self):
+
+        self.master.withdraw()
+
+        self.newWindow = tk.Toplevel(self.master)
+        self.app = UserPanelFrame2(self.newWindow)
+        self.newWindow.geometry('720x720+350+15')
+        self.newWindow.title("Shared Power Login Form")
+
+    def minimizeProgram(self):
+
+        self.master.withdraw()
+
+
+    def claim_info(self):
+        # global gender_selected
+
+        # global country_selected
+        # global account_selected2, account_selected1
+        # global name, Username, Password,CNo
+        self.sellername=self.entry_sellername.get()
+        self.buyername = self.entry_buyername.get()
+        self.toolname = self.entry_toolname.get()
+        self.amount = self.entry_toolrate.get()
+
+
+
+        self.list1 = [self.sellername, self.buyername, self.toolname, self.amount]
+        # print(self.list1)
+
+        self.Dict = {'Seller name:': self.sellername, 'Buyername:': self.buyername,
+                     'toolname:': self.toolname, 'Amount': self.amount}
+
+        if len(self.toolname) == 0 and len(self.sellername) == 0 and len(self.buyername) == 0:
+            tm.showerror("Text Field Error",
+                         "Submit Info is unsucessful. May be one or more field is empty.")
+        else:
+            self.sellername = self.entry_sellername.get()
+            self.buyername = self.entry_buyername.get()
+            self.toolname = self.entry_toolname.get()
+            self.amount = self.entry_toolrate.get()
+
+
+
+            db = sqlite3.connect("spower.db")
+            c = db.cursor()
+            # c.execute("CREATE TABLE IF NOT EXISTS claiminfo(Sellername NOT NULL,"
+            #           "Toolname TEXT,Buyername TEXT,amount INTEGER(10)")
+            #
+            # db.commit()
+            c.execute("INSERT INTO claiminfo VALUES (?,?,?,?)",
+                      (self.sellername, self.buyername, self.toolname, self.amount))
+            db.commit()
+
+            tm.showinfo("Successfully submitted !",
+                        "You will be notified by Insurance agent . !! Keep Exploring shared power")
 
 """THIS A user profile where user can see their own details but cant edit their or update therir details                                                                                                            """
 
@@ -1284,7 +1401,7 @@ class uploadTools(Frame):
 
 
 
-        Button(master, text='Submit Details',font=("arial", 13,"bold"),width=15,bg='#e37b17',fg='white', command=self.upload_info).place(x=265,y=464)
+        Button(master, text='Submit',font=("arial", 13,"bold"),width=15,bg='#00cdfa',fg='white', command=self.upload_info).place(x=245,y=464)
 
 
 
@@ -1420,7 +1537,7 @@ class uploadTools2(Frame):
         self.label_halfrate = Label(master, text="Half Day",width=20,font=("arial", 10))
         self.label_halfrate.place(x=353,y=418)
 
-        Button(master, text='Upload Tools',font=("arial", 13,"bold"),width=15,bg='#e37b17',fg='white', command=self.upload_info).place(x=298,y=464)
+        Button(master, text='Upload Tools',font=("arial", 13,"bold"),width=15,bg='#9ae911',fg='white', command=self.upload_info).place(x=298,y=464)
 
         Button(master, text='Upload Image', font=("arial", 13, "bold"), bg="green", fg='white',
                command=self.upload_image1).place(x=58, y=464)
@@ -2652,7 +2769,7 @@ class view_all_tools():
 
 root = Tk()
 root.geometry('600x370+340+190')
-root.title("Registration Form")
+root.title("Homepage")
 rf = SplashScreenFrame(root)         #in this i need to change and try to implement all the frames in one coding
 root.resizable(False, False)
 root.overrideredirect(False)
