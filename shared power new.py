@@ -617,10 +617,10 @@ class UserPanelFrame2(Frame):
         self.pay_tools = Button(master, text="claim ", width=210, height=160, image=self.pay,
                                 font=('arial', 16, "bold"), cursor="hand1", command=self.claim, activebackground="brown",
                                 activeforeground="green")
-        self.pay_tools.place(x=438, y=445)
+        self.pay_tools.place(x=320,y=445)
 
-        self.pay13 = Label(master, text="claim damage charge ", font=("arial", 16, "bold"))
-        self.pay13.place(x=446, y=623)
+        self.pay13 = Label(master, text="Claim Tool damage charge ", font=("arial", 16, "bold"))
+        self.pay13.place(x=285, y=623)
 
         # self.image_tk = PhotoImage(self.select_image())
         # self.canvas.create_image(0, 0, image=self.image_tk)
@@ -633,7 +633,7 @@ class UserPanelFrame2(Frame):
         self.newWindow = tk.Toplevel(self.master)
         self.app = Claim1(self.newWindow)
         self.newWindow.geometry('550x550+450+140')
-        self.newWindow.title("Claim Damage Charge")
+        self.newWindow.title("Claim Tool Damage Charge")
 
 
     def search(self):
@@ -761,7 +761,7 @@ class Claim1(Frame):
         self.upload12 = PhotoImage(file="Images\claim.png")
 
         self.ph = Label(master, image=self.upload12)
-        self.ph.place(x=160, y=35)
+        self.ph.place(x=150, y=35)
 
 
         Button(master, text='Submit', font=("arial", 13, "bold"), width=15, bg='#9ae911', fg='white',
@@ -2595,7 +2595,7 @@ class InsuranceCompany(Frame):
        
         self.newWindow = tk.Toplevel(self.master)
         self.app = view_all_tools(self.newWindow)
-        self.newWindow.geometry('600x450+450+100')
+        self.newWindow.geometry('600x300+450+100')
         self.newWindow.title("View Upload Tools")
 
 
