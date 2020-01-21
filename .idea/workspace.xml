@@ -3,15 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="fce986f5-26a6-4701-aad4-349459d9421e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/Background3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Background3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/Man.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Man.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/hire1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/hire1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/hiretool.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/hiretool.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/invoice.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/invoice.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/invoice12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/logout.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/logout.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/profile.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/profile.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/yup1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/yup1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Returnlogo.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Returnlogo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Returnlogo1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Returnlogo1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/s1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/s1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shared_power_Sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Shared_power_Sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared power new.py" beforeDir="false" afterPath="$PROJECT_DIR$/shared power new.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spower.db" beforeDir="false" afterPath="$PROJECT_DIR$/spower.db" afterDir="false" />
@@ -27,8 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/shared power new.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="2414" column="28" lean-forward="true" selection-start-line="2414" selection-start-column="28" selection-end-line="2414" selection-end-column="28" />
+            <state relative-caret-position="474">
+              <caret line="1828" lean-forward="true" selection-start-line="1828" selection-end-line="1828" />
               <folding>
                 <element signature="e#22#36#0" expanded="true" />
               </folding>
@@ -47,12 +41,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Print_invoice</find>
-      <find>minimizeprogram</find>
-      <find>back</find>
-      <find>Login_info</find>
-      <find>RegistrationFrame</find>
-      <find>insurance</find>
       <find>insurancecompany</find>
       <find>endprogram</find>
       <find>registrationframe</find>
@@ -61,7 +49,6 @@
       <find>background</find>
       <find>search_res</find>
       <find>print_invoice</find>
-      <find>loginframe</find>
       <find>hiretools</find>
       <find>hire</find>
       <find>search_results</find>
@@ -71,12 +58,19 @@
       <find>profile</find>
       <find>userpanelframe2</find>
       <find>upload</find>
-      <find>uploadtools</find>
       <find>userpanelframe</find>
       <find>login_info</find>
       <find>returntools</find>
       <find>search_result</find>
+      <find>register</find>
       <find>invoice</find>
+      <find>log</find>
+      <find>loginframe</find>
+      <find>uploadtools</find>
+      <find>print</find>
+      <find>other</find>
+      <find>splash</find>
+      <find>drop</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -93,10 +87,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="842" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="840" />
     <option name="width" value="955" />
-    <option name="height" value="1038" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -247,15 +241,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="674" y="0" width="764" height="830" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.041208792" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.01981506" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.17739628" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.17114569" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.2135785" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -327,8 +321,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shared power new.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="2414" column="28" lean-forward="true" selection-start-line="2414" selection-start-column="28" selection-end-line="2414" selection-end-column="28" />
+        <state relative-caret-position="474">
+          <caret line="1828" lean-forward="true" selection-start-line="1828" selection-end-line="1828" />
           <folding>
             <element signature="e#22#36#0" expanded="true" />
           </folding>

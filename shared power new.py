@@ -31,7 +31,7 @@ class SplashScreenFrame(Frame):
 
 
 
-        self.button = Button(master,text="Click Here To Rent Tools", font=("bold", 10),bg= 'Blue', relief="groove", activebackground="green",command=self.command1).place(x=255, y=310)
+        self.button = Button(master,text="Click Here for Tools...!!!", font=("bold", 10),bg= 'skyBlue', relief="groove", activebackground="green",command=self.command1).place(x=255, y=310)
 
        
 
@@ -65,9 +65,7 @@ class SplashScreenFrame(Frame):
 
                 self.newWindow.title("Shared Power Registeration Form")
 
-    def run(self):
-        self.progress_bar.start()
-        #self.progress_bar['maximum'] = 100
+
 
 
 
@@ -125,10 +123,10 @@ class LoginFrame():
         self.lab2 = Label(master, image=self.img2)
         self.lab2.place(x=20, y=23)
 
-        self.img1 = PhotoImage(file="Images\login2.png")
+        self.img1 = PhotoImage(file="Images\log.png")
 
         self.lab1 = Label(master, image=self.img1)
-        self.lab1.place(x=180,y=30)
+        self.lab1.place(x=150,y=30)
 
 
 
@@ -193,7 +191,7 @@ class LoginFrame():
                     self.newWindow.title("Shared Power Login Form")
 
                 else:
-                    print("others")
+
                     tm.showinfo("Login successful", "Welcome User")
                     self.master.withdraw()
 
@@ -289,9 +287,6 @@ class UserPanelFrame(Frame):
         master.resizable(False, False)
         master.overrideredirect(True)
 
-        #self.button_cal = Button(master, text="Calendar", font=("bold", 9), relief="groove",
-         #                        activebackground="red", command=self.cal1)
-        #self.button_cal.place(x=10, y=680)
 
 
         self.show_profile = Button(master, text="View Profile", font=("bold", 12), relief="groove",
@@ -311,7 +306,7 @@ class UserPanelFrame(Frame):
         self.manphoto.place(x=10, y=160)
 
 
-        self.fetch = Label(master, text="Fetch your Desire! ", width=25, font=("bold", 16))
+        self.fetch = Label(master, text="  Experiance New Things In Your Life", width=25, font=("bold", 14))
         self.fetch.place(x=203, y=100)
         self.s1 = PhotoImage(file="Images\s1.png")
         self.search_tools = Button(master, text="Search Tools",  width=210, height=160, image=self.s1,
@@ -758,9 +753,9 @@ class profile2(Frame):
         master.overrideredirect(True)
 
 
-        self.profile = PhotoImage(file="Images\profile.png")
+        self.profile = PhotoImage(file="Images\k.png")
         self.profileimg= Label(master, image=self.profile)
-        self.profileimg.place(x=180, y=8)
+        self.profileimg.place(x=145, y=8)
 
 
         self.label_1 = Label(master, text="Name", width=20, font=("bold", 13))
@@ -853,9 +848,9 @@ class profile(Frame):
         master.resizable(False, False)
         master.overrideredirect(True)
 
-        self.profile = PhotoImage(file="Images\profile.png")
+        self.profile = PhotoImage(file="Images\k.png")
         self.profileimg = Label(master, image=self.profile)
-        self.profileimg.place(x=180, y=8)
+        self.profileimg.place(x=145, y=8)
 
         self.label_1 = Label(master, text="Name", width=20, font=("bold", 13))
         self.label_1.place(x=70, y=130)
@@ -987,7 +982,7 @@ class RegistrationFrame(Frame):
         self.label_4 = Label(master, text="Country",width=20,font=("bold", 13))
         self.label_4.place(x=70,y=330)
 
-        list1 = ['Argentina','Afghanistan','Algeria','Bangladesh','Brazil', 'Thailand','Canada','India','UK','Nepal','USA','Iceland','South Africa','Uganda','Maldives'];
+        list1 = ['Argentina','Afghanistan','Bhutan','Bangladesh','Brazil', 'Thailand','China','India','UK','Nepal','USA','Iceland','South Africa','Uganda','Maldives'];
         country=StringVar()
 
         country_droplist =OptionMenu(master,country, *list1, command=RegistrationFrame.countey_selected)
@@ -1027,10 +1022,10 @@ class RegistrationFrame(Frame):
         #self.lab2 = Label(master, image=self.img2)
         #self.lab2.place(x=20, y=23)
 
-        self.img1 = PhotoImage(file="Images\Regfinal1.png")
+        self.img1 = PhotoImage(file="Images\kap.png")
 
         self.lab1 = Label(master, image=self.img1)
-        self.lab1.place(x=160,y=35)
+        self.lab1.place(x=145,y=35)
 
         master.resizable(False, False)
         master.overrideredirect(True)
@@ -1238,16 +1233,10 @@ class UploadImage(Frame):
 
       
 
-        tm.showinfo("Successfully Uploaded ToolImage!", "Your selected image is uploaded in ToolImage Database. !! Keep Exploring Shared power")
+        tm.showinfo("Successfully Uploaded ToolImage!", "Your selected image is uploaded in ToolImage Database.")
         self.master.withdraw()
-        #
-        # # print('Button is pressed!')
-        # # self.RegistrationFrame.destroy()
-        # self.newWindow = tk.Toplevel(self.master)
-        # self.app = SearchTools(self.newWindow)
-        # self.newWindow.geometry('650x550+450+140')
-        # self.newWindow.title("Upload Tools Form")
-
+        
+        
 
 
 
@@ -1305,10 +1294,10 @@ class uploadTools(Frame):
         #self.lab2 = Label(master, image=self.img2)
         #self.lab2.place(x=20, y=23)
 
-        self.upload12 = PhotoImage(file="Images\pload12.png")
+        self.upload12 = PhotoImage(file="Images\dispa.png")
 
         self.ph = Label(master, image=self.upload12)
-        self.ph.place(x=160,y=35)
+        self.ph.place(x=100,y=35)
 
         master.resizable(False, False)
         master.overrideredirect(True)
@@ -1469,27 +1458,22 @@ class uploadTools2(Frame):
                 self.newWindow = tk.Toplevel(self.master)
                 self.app = UploadImage(self.newWindow)
                 self.newWindow.title("Upload Tools Form")
-                # def select_image(self):
-                # file_path = filedialog.askopenfilename()
-                # return Image.open(file_path)
 
     def back(self):
 
-                # I need make windows itself destroy after clicking on this button and make other window appear in same position
-                #self.master = master
+
                 self.master.withdraw()
 
-                #print ('Button is pressed!')
-                #self.RegistrationFrame.destroy()
+
                 self.newWindow = tk.Toplevel(self.master)
                 self.app = UserPanelFrame2(self.newWindow)
                 self.newWindow.geometry('720x720+350+15')
                 self.newWindow.title("Shared Power Login Form")
 
     def minimizeProgram(self):
-        # root.wm_state('iconic')
+
         self.master.withdraw()
-        # root.state("withdrawn")
+
 
 
     def upload_info(self):
@@ -1600,11 +1584,11 @@ class SearchTools(Frame):
         #self.lab2 = Label(master, image=self.img2)
         #self.lab2.place(x=20, y=10)
 
-        # self.img1 = PhotoImage(file="Images\search3.png")
+        self.img1 = PhotoImage(file="Images\ser.png")
 
-        # self.lab1 = Label(master, image=self.img1)
-        # self.lab1.place(x=200,y=5)
-        #
+        self.lab1 = Label(master, image=self.img1)
+        self.lab1.place(x=435,y=5)
+
         self.tview = ttk.Treeview(master, columns=(
             'ToolName', 'Description', "Condition", "Fullday Price", "Halfday price"))
 
@@ -1770,10 +1754,10 @@ class SearchTools2(Frame):
         # self.lab2 = Label(master, image=self.img2)
         # self.lab2.place(x=20, y=10)
 
-        # self.img1 = PhotoImage(file="Images\search3.png")
+        self.img1 = PhotoImage(file="Images\ser.png")
 
-        # self.lab1 = Label(master, image=self.img1)
-        # self.lab1.place(x=200,y=5)
+        self.lab1 = Label(master, image=self.img1)
+        self.lab1.place(x=435, y=5)
         #
         self.tview = ttk.Treeview(master, columns=(
             'ToolName', 'Description', "Condition", "Fullday Price", "Halfday price"))
@@ -2090,7 +2074,7 @@ class ReturnTools(Frame):
         c=db.cursor()
         c.execute('select Toolname from hiretools ')
         self.data=c.fetchall()
-        print(self.data)
+
         db.commit()
 
 
@@ -2327,24 +2311,22 @@ class invoice(Frame):
             halfdayp= info[5]
             insu=info[6]
             a=float(fulldayp)+float(insu)
-            b=float(a/2)
+            b=float(halfdayp)+float(insu)
 
 
             # dat=date.today(7)
-        # self.invoice = PhotoImage(file="Images\invoice.png")
-        # self.invoiceimg = Label(master, image=self.invoice)
-        # self.invoiceimg.place(x=180, y=8)
+        self.invoice = PhotoImage(file="Images\inv.png")
+        self.invoiceimg = Label(master, image=self.invoice)
+        self.invoiceimg.place(x=115, y=8)
 
 
 
 
-        # self.button_minimize = Button(master, text="_", width=1, font=("bold", 17), relief="groove",
-        #                               activebackground="blue", command=minimizeProgram)
-        # self.button_minimize.place(x=492, y=2)
+
 
         self.button_destroy = Button(master, text="X", width=2, font=("bold", 17), relief="groove",
                                      activebackground="red", command=self.back)
-        self.button_destroy.place(x=518, y=2)
+        self.button_destroy.place(x=500, y=2)
 
         self.label_in = Label(master, text="Invoice No:", width=20, font=("bold", 13))
         self.label_in.place(x=70, y=130)
@@ -2438,7 +2420,7 @@ class InsuranceCompany(Frame):
         self.button_back = Button(master, text="X", width=2, font=("bold", 17), relief="groove", activebackground="red",
                                   command=self.back)
         self.button_back.place(x=515, y=3)
-        self.title = Label(master, text="Welcome !! Explore Shahu  ", width=30, font=("bold", 20))
+        self.title = Label(master, text="!!! Welcome !!!  ", width=30, font=("bold", 20))
         self.title.place(x=55, y=55)
 
         self.logout = PhotoImage(file="Images\logout.png")
@@ -2469,15 +2451,7 @@ class InsuranceCompany(Frame):
         self.view132 = Label(master, text="  View All Uploaded Tool", font=("arial", 16, "bold"))
         self.view132.place(x=270, y=408)
 
-        '''
-        self.entry_condition = Entry(master, bd=5)
-        self.entry_condition.place(x=240, y=230, width=180)
 
-        self.label_rate = Label(master, text="Tool Rate",width=20,font=("bold", 13))
-        self.label_rate.place(x=70,y=280)
-        self.entry_rate = Entry(master, bd=5)
-        self.entry_rate.place(x=240, y=280, width=180)
-        '''
 
 
         self.img2 = PhotoImage(file="Images\yup1.png")
@@ -2491,8 +2465,7 @@ class InsuranceCompany(Frame):
     def view_info1(self):
         self.master.withdraw()
 
-        # print ('Button is pressed!')
-        # self.RegistrationFrame.destroy()
+       
         self.newWindow = tk.Toplevel(self.master)
         self.app = view_userinfo(self.newWindow)
         self.newWindow.geometry('648x350+455+140')
@@ -2502,30 +2475,24 @@ class InsuranceCompany(Frame):
     def view_info12(self):
         self.master.withdraw()
 
-        # print ('Button is pressed!')
-        # self.RegistrationFrame.destroy()
+       
         self.newWindow = tk.Toplevel(self.master)
         self.app = view_all_tools(self.newWindow)
         self.newWindow.geometry('600x450+450+100')
         self.newWindow.title("View Upload Tools")
 
 
-        # if self.Searched_Tool== "   ":
-        # tm.showerror("Invalid ToolName", "No Such Tool Is Uploaded By Any Registered User In Our Database")
-
-        # self.show_gui = Label(self.master, text=self.searchTool, font=('courier', 12, 'bold'), bg="#0984e3")
-        # self.show_gui.place(x=18, y=220)
+       
 
     def logOut(self):
-        # print("This will logout you from user panel.")
+        
 
         tm.showwarning("Confirm LogOut",
                        "Are You sure want to LogOut from  Shahu:The Ultimate Shared Power? ")
 
         self.master.withdraw()
 
-        # print('Button is pressed!')
-        # self.RegistrationFrame.destroy()
+        
         self.newWindow = tk.Toplevel(self.master)
         self.app = LoginFrame(self.newWindow)
         self.newWindow.geometry('550x350+450+220')
@@ -2537,12 +2504,9 @@ class InsuranceCompany(Frame):
         tm.showwarning("Confirm Exit",
                        "Are You sure want to exit Shared Power? ")
 
-        # I need make windows itself destroy after clicking on this button and make other window appear in same position
-        # self.master = master
         self.master.withdraw()
 
-        # print ('Button is pressed!')
-        # self.RegistrationFrame.destroy()
+        
         self.newWindow = tk.Toplevel(self.master)
         self.app = LoginFrame(self.newWindow)
         self.newWindow.geometry('550x350+450+220')
@@ -2559,16 +2523,7 @@ class view_userinfo():
         self.master = master
         self.frame = tk.Frame(master)
 
-        # scrollbar = Scrollbar(master)
-        # scrollbar.grid(row=12, column=9, sticky='ns')
-        # lb = Listbox(master, width=110, height=20, yscrollcommand=scrollbar.set)
-        # lb.grid(row=12, column=8, padx=8)
-        # scrollbar.config(command=lb.yview)
-
-        # self.button_minimize = Button(master, text="_", width=1, font=("bold", 17), relief="groove",
-        #                               activebackground="blue",
-        #                               command=self.minimizeProgram)
-        # self.button_minimize.place(x=491, y=2)
+        
 
         self.button_destroy = Button(master, text="Go Back", width=12, font=("bold", 17), relief="groove",
                                      activebackground="red",
@@ -2619,8 +2574,7 @@ class view_userinfo():
             # self.country = uall[4]
             # self.pn = uall[5]
 
-    # def minimizeProgram(self):
-    #     self.master.withdraw()
+    
 
     def back(self):
 
@@ -2634,52 +2588,7 @@ class view_userinfo():
 
 
 
-        # self.tree.insert("" ,tk.END,values=(self.fname,self.email,self.gender,self.country,self.pn))
-        # print(uinfo)
-        #
-        #
-        #
-        # tree = ttk.Treeview(master, column=("column1", "column2", "column3","column4", "column5"), show='headings')
-        # tree.heading("#1", text="Fullname")
-        # tree.heading("#2", text="Email")
-        # tree.heading("#3", text="Gender")
-        # tree.heading("#4", text="Country")
-        # tree.heading("#5", text="Phone No")
-        # tree.pack()
 
-        # db = sqlite3.connect("spower.db")
-        # c = db.cursor()
-
-        # print(LoginFrame.username)
-        # c.execute('SELECT * FROM userinfo where Fullname= ?',(str(LoginFrame.username)))
-        # c.execute('select* from userinfo ')
-        # uinfo = c.fetchall()
-        # db.commit()
-        # for uall in uinfo:
-        #     lb.insert(END, uall)
-
-
-
-        # scrollbar = Scrollbar(master)
-        # scrollbar.grid(row=11, column=9, sticky='ns')
-        # lb = Listbox(master, width=110, height=20, yscrollcommand=scrollbar.set)
-        # lb.grid(row=12, column=8, padx=8)
-        # scrollbar.config(command=lb.yview)
-
-
-
-
-
-        # self.button_minimize = Button(master, text="_", width=1, font=("bold", 17), relief="groove",
-        #                               activebackground="blue", command=self.minimizeProgram)
-        # self.button_minimize.place(x=661, y=2)
-        #
-        # self.button_destroy = Button(master, text="X", width=2, font=("bold", 17), relief="groove",
-        #                              activebackground="red", command=endProgram)
-        # self.button_destroy.place(x=685, y=3)
-
-        # master.resizable(False, False)
-        # master.overrideredirect(True)
 
 
 
@@ -2708,11 +2617,7 @@ class view_all_tools():
         self.tview.grid(row=0, columnspan=2, sticky='nsew')
         self.tview.pack(side=TOP)
 
-        # scrollbar=Scrollbar(master)
-        # scrollbar.grid(row=8,column=9,sticky='ns')
-        # lb=Listbox(master,width=90,height=10,yscrollcommand=scrollbar.set)
-        # lb.grid(row=12,column=8,padx=8)
-        # scrollbar.config(command=lb.yview)
+
 
 
         master.resizable(False, False)
