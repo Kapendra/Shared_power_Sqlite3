@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fce986f5-26a6-4701-aad4-349459d9421e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Images/Background33.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/Returnlogo11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/Returnlogo123.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/Viewtool.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Viewtool.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/search.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/search3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/yup123.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Shared_power_Sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Shared_power_Sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared power new.py" beforeDir="false" afterPath="$PROJECT_DIR$/shared power new.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spower.db" beforeDir="false" afterPath="$PROJECT_DIR$/spower.db" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/shared power new.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="547">
-              <caret line="2616" lean-forward="true" selection-start-line="2616" selection-end-line="2616" />
+            <state relative-caret-position="-27210">
+              <caret line="1106" lean-forward="true" selection-start-line="1106" selection-end-line="1106" />
               <folding>
                 <element signature="e#22#36#0" expanded="true" />
               </folding>
@@ -252,7 +244,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.06789251" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.042432815" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.2135785" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -324,8 +316,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shared power new.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="2616" lean-forward="true" selection-start-line="2616" selection-end-line="2616" />
+        <state relative-caret-position="-27210">
+          <caret line="1106" lean-forward="true" selection-start-line="1106" selection-end-line="1106" />
           <folding>
             <element signature="e#22#36#0" expanded="true" />
           </folding>
